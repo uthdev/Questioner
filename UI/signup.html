@@ -3,12 +3,23 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Questioner | Sign up</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
     <script src="main.js"></script>
 </head>
 <body>
-    
+    <h1>Sign Up</h1>
+    <form action="#">
+        <input type="text" placeholder="Name" required><br>
+        <input type="text" placeholder="Email address" required><br>
+        <input type="text" placeholder="Password" required><br>
+        <input type="text" placeholder="Confirm password" required><br>
+        <label for="terms">
+            <input id="terms" type="checkbox" name="terms-conditions" checked required> I agree to the privacy terms and conditions of the website
+        </label><br>
+        <button type="submit">SIGN UP</button>
+        <p>already have an account? <a href="./signin.html">Sign In</a></p>
+    </form>
 </body>
 </html>

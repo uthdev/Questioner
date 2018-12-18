@@ -9,7 +9,7 @@ Questioner helps the meetup organizer prioritize questions to be answered. Other
 - Users can post questions to a specific meetup.
 - Users can upvote or downvote a question.
 - Questions are sorted based on the number of upvotes a question has, which helps the
-     meetup organizer(s) to prioritize questions most users are interested in.
+  meetup organizer(s) to prioritize questions most users are interested in.
 - Users can post comments to a specific question.
 
 ## Optional Features
