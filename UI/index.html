@@ -6,24 +6,76 @@
     <title>Questioner | Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-    <script src="main.js"></script>
+    <!-- <script src="main.js"></script> -->
 </head>
 <body>
-    <h1>Questioner</h1>
-    <img src="img/questions.jpg" alt="questions">
-    <ul>
-        <a href="./signin.html"><li>Sign Up</li></a>
-        <a href="./signup.html"><li>Sign In</li></a>
-    </ul>
-    <p> Wo! There's a meetup? <br>I've always wanted to ask...</p>
-    <p>Questioner helps the meetup organizer prioritize questions to be answered. Other users can vote on asked questions and they bubble to the top or bottom of the log.</p>
-    <a href="./activity.html"><p>I'll like to ask</p></a>
+    <header>
+        <div class="container">
+            <div class="branding">
+                <h1>Questioner</h1>
+                <img src="img/questions.jpg" alt="questions">
+            </div>
+        
+        </div>
+    </header>
+    <section id="showcase">
+        <div class="container">
+            <h1> Wo! There's a meetup? <br>I've always wanted to ask...</h1>
+            <p>Questioner helps the meetup organizer prioritize questions to be answered. Other users can vote on asked questions and they bubble to the top or bottom of the log.</p>
+        </div>
+        <div class="signin-up">
+            <h1>Sign In</h1>
+            <form action="#">
+                <input type="email" placeholder="Email address" required><br>
+                <input type="text" placeholder="Password" required><br>
+                <label for="remember">
+                    <input id="remember" type="checkbox">Remember Me
+                </label><br>
+                <button type="submit"><a href="./activity.html">SIGN IN</a></button>
+                <p>Dont have an account? <a href="./signup.html">Sign Up</a></p>
+            </form>
+        </div>
+    </section>
 
-    
-    
-    
-
-
-    
+    <section>
+        <h1>Subcribe to get update about your meetups</h1>
+        <form action="#">
+            <input type="email" placeholder="Enter Email...">
+            <button class="btn" type="submit">Subscribe</button>
+        </form>
+    </section>
+        
+    <section id="boxes">
+            <div class="container">
+                    <div class="box">
+                        <img src="./img/green question.jpg" alt="question">
+                        <h3>Post Your question</h3>
+                        <p>Post questions you've always wanted to ask at your upcoming meetup to let the organizers know</p>
+                    </div>
+                    <div class="box">
+                        <img src="./img/upvote or downvote.jpg" alt="upvote or downvote">
+                        <h3>Upvote or Downvote</h3>
+                        <p>Upvote or downvote a question posted to your upcoming meetup to increase their chance of getting answered</p>
+        
+                    </div>
+                    <div class="box">
+                        <img src="./img/comment.png" alt="commment logo">
+                        <h3>Share your view</h3>
+                        <p>Share your opinion to questions posted to your upcoming meetups in the comment section</p>
+        
+                    </div> 
+        
+                </div>
+        
+    </section>
+    <footer id="footer">
+        <div class="follow">
+            <p>Follow Us</p>
+            <a href="#"><img src="./img/facebook.png" alt="facebook"></a>
+            <a href="#"><img src="./img/twitter.jpg" alt="tweeter"></a>
+            <a href="#"><img src="./img/instagram.jpg" alt="instagram"></a>
+            <h4> © 2018 Questioner inc.</h4>
+        </div>
+    </footer>
 </body>
 </html>

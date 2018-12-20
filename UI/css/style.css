@@ -1,0 +1,38 @@
+/* Global styles
+--------------------------*/
+
+body {
+    /* font: arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.5; */
+    font: 15px/1.5 arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color: #f1f1f1;
+}
+/* Header and Footer 
+---------------------------*/
+
+
+
+
+
+
+
+
+/* showcase styles
+-------------------------*/
+
+
+
+
+
+
+
+
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
