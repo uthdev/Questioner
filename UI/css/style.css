@@ -133,13 +133,12 @@ header a:hover {
       color: #F1F5F2;
   }
 
-  #signin-up 
 /* showcase styles
 -------------------------*/
 
 #showcase { 
     min-height: 400px;
-    background-image: url(../img/showcase.jpg) ;
+    background-image: url(../img/showCase1.jpg);
     text-align: center;
     color: #ffffff;
     background-size: 100%;
