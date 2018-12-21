@@ -1,0 +1,415 @@
+/* Global styles
+--------------------------*/
+
+body {
+    font: arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    /* font: 15px/1.5 arial, Helvetica, sans-serif; */
+    padding: 0;
+    margin: 0;
+    background-color: #f4f4f4;
+    
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+textarea { 
+    border:2px #CD9FCC solid;
+    border-radius: 9px;
+    padding: 10px;
+    width: 50%;
+
+}
+
+/* Header and Footer 
+---------------------------*/
+header {
+    background: #3A506B;
+    color: #ffffff;
+    padding: 30px;
+    min-height: 30px;
+    border-bottom: #6FFFE9 3px solid;
+}
+
+header a {
+    color: #6fffe9;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+
+header li {
+    float: left;
+    display: inline;
+    padding: 0 20px 0 20px;
+}
+
+header #brand {
+    color: #6FFFE9;
+    float: left;
+}
+header #brand h1 {
+    margin: 0;
+    font-weight: bold;
+}
+header nav {
+    float: right;
+    margin-top: 10px;
+}
+
+header a:hover {
+    color: #ACE4AA;
+    font-weight: bold;
+
+}
+  /* sign up and sign 
+  --------------------------*/
+  #signin-up {
+    width: 30%;
+    text-align: center;
+    padding: 15px;
+    background: #F1F5F2;
+    color: #3A506B;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    border: 3px #3A506B solid;
+
+  } 
+  /* #signin-up a {
+      color 
+  } */
+
+  #signin-up  p a:hover {
+    font-size: 25px;
+    color: #6FFFE9;
+  }
+
+
+  #bold {
+    font-size: 20px;
+    font-weight: bold;
+    /* color: #3a3a3a; */
+
+
+  }
+
+  #signin-up input {
+    padding: 4px;
+    height: 25px;
+    width: 250px;
+    border-radius: 5px;
+    margin: 10px;
+    border: 2px #3A506B solid;
+    /* color:  */
+  }
+    
+  #signin-up button {
+    background: #3A506B;
+    width: 250px;
+    height: 25;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 4px;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  #check {
+    float: left;
+    margin-right: 0;
+    padding: 0;
+  }
+
+  #btn a {
+      color: #F1F5F2;
+  }
+
+<<<<<<< HEAD
+=======
+
+>>>>>>> featureUI
+/* showcase styles
+-------------------------*/
+
+#showcase { 
+    min-height: 400px;
+<<<<<<< HEAD
+    background-image: url(../img/showCase1.jpg);
+=======
+    background: url(../img/showcase.jpg)no-repeat 0 -400px;
+>>>>>>> featureUI
+    text-align: center;
+    color: #ffffff;
+    background-size: 100%;
+} 
+
+#showcase h1 {
+    margin-top: 70px;
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+#showcase #welcome {
+    float:left;
+    /* width: 60%; */
+}
+
+#showcase #signin-up {
+    width: auto;
+    text-align: center;
+    border: 2px #6FFFE9 solid;
+    border-radius: 9px;
+    /* background: #ffffff; */
+    float: right;
+    padding: 20px;
+}
+
+#showcase p {
+    font-size: 20px;
+}
+/*newsletter 
+-----------------------*/
+#newsletter {
+    padding: 10px;
+    color: #6FFFE9;
+    background: #3A506B;
+}
+
+#newsletter h1 {
+    float: left;
+}
+
+#newsletter form {
+    float: right;
+    margin-top: 20px;
+}
+
+#btn {
+    height: 38px;
+    background: #333333;
+    border: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+/*Boxes 
+-------------------*/
+#boxes {
+    margin-top: 15px;
+    font-size: 17px;
+    /* background: url(../img/Privacy-MeetUp.jpg); */
+}
+
+#boxes .box {
+    float: left;
+    text-align: center;
+    width: 30%;
+    padding: 5px;
+}
+
+#boxes .box h3 {
+    margin: 0;
+}
+
+#boxes .box img {
+    min-width: 90px; 
+    height: 70px;
+}
+
+#numfloat {
+    float: left;
+    margin: 20px;
+    text-align: center;
+} 
+
+#numfloat h2 {
+    background: #3A506B;
+    height: 30px;
+    color: #ffffff;
+} 
+
+#numfloat .num {
+    height: 50px;
+    background: #CD9FCC;
+    font-weight: bold;
+    font-size: 25px;
+    color: #0A014F;
+    width: 50px;
+    text-align: center;
+}
+
+.formcolor {
+    padding: 15px;
+    background: #3A506B;
+    color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: left;
+    /* width: 30%; */
+} 
+
+.formcolor input {
+    padding: 4px;
+    height: 25px;
+}
+
+.formcolor img {
+    height: 250px;
+    border-radius: 50%;
+}
+
+
+
+.events {
+    float:right;
+    min-height: 400px;
+}
+
+.feeds h2 {
+    height: 30px;
+    font-size: 25px;
+    font-weight: bold;
+    background: #3A506B;
+    color: #ffffff;
+}
+
+
+.feeds p {
+    /* line-height: 15px; */
+    font-size: 18px;
+    background: #CD9FCC;
+    color: #0A014F;
+    /* padding: 10px; */
+}
+footer {
+    background: #3A506B;
+    /* margin-bottom: 5px; */
+}
+
+footer p {
+    color: #6FFFE9;
+    /* padding: 20px; */
+    /* margin-top: 20px; */
+    font-size: 20px;
+    font-weight: bold;
+}
+
+footer img {
+    height: 30px;
+    margin: 0 10px 5px 10px;
+    padding: 0;
+    float: left;
+}
+footer h4 {
+    margin: 0;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bolder;
+}
+
+form input[type="text"] {
+    padding: 4px;
+    height: 30px;
+    width: 200px;
+    margin: 20px 0 20px 0;
+}
+
+
+.upload {
+    float: left;
+
+}
+#btn-1 {
+/* float:right; */
+
+    /* float:right; */
+    height: 30px;
+    background: #333333;
+    border: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+.btn-2 {
+    height: 20px;
+    background: #333333;
+    border: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #ffffff;
+    border-radius: 5px;
+
+}
+
+#admin {
+    border: 10px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#comments {
+    background: #F1F5F2;
+    padding: 10px;
+    margin: 10px;
+    width: 50%;
+}
+
+#comments h2 {
+    height: 30px;
+    font-size: 25px;
+    font-weight: bold;
+    background: #3A506B;
+    color: #ffffff;
+}
+ #comments p {
+     border: 2px rgba(89, 230, 46, 0.178) solid;
+     border-radius: 9px;
+    /* line-height: 15px; */
+    font-size: 18px;
+    background: #CD9FCC;
+    color: #0A014F;
+    /* padding: 10px; */
+}
+
+#comments h3 {
+    height: 25px;
+    font-size: 20px;
+    background: #333333 ;
+    color: #f4f4f4;
+
+}
+
+#comment_text {
+    height: 30px;
+    background: #CD9FCC;
+    border: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #0A014F;
+    font-size: 17px;
+    border-radius: 5px;
+}
+
+}
+
+
