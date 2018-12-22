@@ -149,11 +149,7 @@ header a:hover {
 
 #showcase { 
     min-height: 400px;
-<<<<<<< HEAD
-    background-image: url(../img/showCase1.jpg);
-=======
     background: url(../img/showcase.jpg)no-repeat 0 -400px;
->>>>>>> featureUI
     text-align: center;
     color: #ffffff;
     background-size: 100%;
@@ -409,5 +405,3 @@ form input[type="text"] {
     font-size: 17px;
     border-radius: 5px;
 }
-
-
