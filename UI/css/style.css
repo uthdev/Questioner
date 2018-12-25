@@ -1,3 +1,4 @@
+@import './footer.css';
 @import './global.css';
 @import './header.css';
 
@@ -53,4 +54,3 @@
   min-width: 90px; 
   height: 70px;
 }
-
