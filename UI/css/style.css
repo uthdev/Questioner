@@ -35,7 +35,7 @@ textarea {
 
 }
 
-/* Header and Footer 
+/* Header  
 ---------------------------*/
 header {
     background: #3A506B;
@@ -49,12 +49,16 @@ header a {
     color: #6fffe9;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 18px;
+}
+
+header ul {
+    margin: 0;
+    padding: 0;
 }
 
 
 header li {
-    float: left;
     display: inline;
     padding: 0 20px 0 20px;
 }
@@ -77,68 +81,6 @@ header a:hover {
     font-weight: bold;
 
 }
-  /* sign up and sign 
-  --------------------------*/
-  #signin-up {
-    width: 30%;
-    text-align: center;
-    padding: 15px;
-    background: #F1F5F2;
-    color: #3A506B;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-radius: 7px;
-    border: 3px #3A506B solid;
-
-  } 
-  /* #signin-up a {
-      color 
-  } */
-
-  #signin-up  p a:hover {
-    font-size: 25px;
-    color: #6FFFE9;
-  }
-
-
-  #bold {
-    font-size: 20px;
-    font-weight: bold;
-    /* color: #3a3a3a; */
-
-
-  }
-
-  #signin-up input {
-    padding: 4px;
-    height: 25px;
-    width: 250px;
-    border-radius: 5px;
-    margin: 10px;
-    border: 2px #3A506B solid;
-    /* color:  */
-  }
-    
-  #signin-up button {
-    background: #3A506B;
-    width: 250px;
-    height: 25;
-    border-radius: 5px;
-    color: #ffffff;
-    padding: 4px;
-    font-weight: bold;
-    font-size: 20px;
-  }
-
-  #check {
-    float: left;
-    margin-right: 0;
-    padding: 0;
-  }
-
-  #btn a {
-      color: #F1F5F2;
-  }
 
 
 /* showcase styles
@@ -228,8 +170,7 @@ header a:hover {
 }
 
 #numfloat {
-    float: left;
-    margin: 20px;
+    margin-bottom: 10px;
     text-align: center;
 } 
 
@@ -249,14 +190,17 @@ header a:hover {
     text-align: center;
 }
 
+
+.data-container {
+    float: left;
+    /* width: 45%; */
+}
 .formcolor {
-    padding: 15px;
-    background: #3A506B;
     color: #ffffff;
     margin-top: 10px;
     margin-bottom: 10px;
-    float: left;
-    /* width: 30%; */
+    background: #3A506B;
+    padding: 15px;
 } 
 
 .formcolor input {
@@ -275,8 +219,13 @@ header a:hover {
     float:right;
     min-height: 400px;
 }
+.feeds{
+    margin: 0;
+    padding: 0;
+}
 
 .feeds h2 {
+    padding: 0 10px 10px 10px;
     height: 30px;
     font-size: 25px;
     font-weight: bold;
@@ -363,12 +312,12 @@ form input[type="text"] {
 #comments {
     background: #F1F5F2;
     padding: 10px;
-    margin: 10px;
+    /* margin: 10px; */
     width: 50%;
+    float: left;
 }
 
 #comments h2 {
-    height: 30px;
     font-size: 25px;
     font-weight: bold;
     background: #3A506B;
@@ -385,7 +334,6 @@ form input[type="text"] {
 }
 
 #comments h3 {
-    height: 25px;
     font-size: 20px;
     background: #333333 ;
     color: #f4f4f4;
@@ -401,8 +349,39 @@ form input[type="text"] {
     color: #0A014F;
     font-size: 17px;
     border-radius: 5px;
+    margin-bottom: 10px;
 }
 
-}
+/*media queries 
+----------------------*/
+@media(max-width: 768px) {
+    header #brand h1,
+    header nav, 
+    header nav li, 
+    #boxes .box,
+    .data-container,
+    .events,
+    #comments {
+        float: none;
+        text-align: center;
+        width: 100%;
+    }
 
+    header nav li {
+        padding: 0 10px 0 10px;
+    }
+
+    #showcase h1 {
+        margin-top: 40px;
+    }
+
+    #comments h2 {
+        font-size: 20px;
+    }
+    
+    #comments h3 {
+        font-size: 18px;
+    }
+
+}
 

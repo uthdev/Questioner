@@ -5,24 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Questioner | Sign In</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/forms.css" />
     <script src="main.js"></script>
 </head>
 <body>
-    <div id="signin-up">  
-        <div class="">
-            <h1>Sign In</h1>
-        </div>
-        <form action="#">
-            <input type="text" placeholder="Email address" required><br>
-            <input type="text" placeholder="Password" required><br>
-            <label for="remember">
-                <input id="check" type="checkbox">Remember Me
-            </label><br>
-            <button id="btn" type="submit"><a href="./profile.html">SIGN IN</a></button>
-            <p>New to Questioner? <a href="./signup.html"><span id="bold">Sign Up</span></a></p>
+    <div class="form-container">
+        <form action="#" class="form">
+            <div> 
+                <h1>Sign In</h1>
+            </div>
+
+            <div class="input-group">
+                <input type="text" placeholder="Email address" required>
+            </div>
+
+            <div class="input-group">
+                <input type="text" placeholder="Password" required>
+            </div>
+
+            <div>
+                <input id="remember-me" type="checkbox" name="remember-me">
+                <label for="remember-me">
+                    Remember me
+                </label>
+            </div>
+
+            <button type="submit">SIGN IN</button>
+            <p>New to Questioner? <a href="./signup.html">Sign Up</a></p>
         </form>
-        
     </div>
     
     
