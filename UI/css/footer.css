@@ -1,0 +1,20 @@
+.footer {
+  background: #3A506B;
+}
+
+.footer p {
+  color: #6FFFE9;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.footer img {
+  height: 30px;
+  margin-right: 20px;
+}
+
+.footer h4 {
+  text-align: center;
+  color: #ffffff;
+  font-weight: bolder;
+}
