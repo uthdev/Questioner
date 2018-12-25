@@ -1,0 +1,35 @@
+.form {
+    text-align: center;
+    padding: 15px;
+    background: #F1F5F2;
+    color: #3A506B;
+    margin: 60px auto;
+    border-radius: 7px;
+    border: 3px #3A506B solid;
+    width: min-content;
+} 
+
+.form .input-group {
+    margin: 10px;
+}
+
+.form .input-group input[type="text"] {
+    border: 1px solid rgb(151, 153, 152);
+    border-radius: 3px;
+    box-sizing: border-box;
+    height: 40px;
+    max-width: 320px;
+    min-width: 200px;
+    padding: 0 8px;
+    width: 33vw;
+}
+
+.form button {
+    background: #3A506B;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 4px 16px;
+    font-size: 20px;
+}
+
+

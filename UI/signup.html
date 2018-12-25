@@ -5,25 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Questioner | Sign up</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/forms.css" />
     <script src="main.js"></script>
 </head>
 <body>
-    <div id="signin-up">
-        <div> 
-            <h1>Sign Up</h1>
-        </div>
-        <form action="#">
-                <input type="text" placeholder="Name" required><br>
-                <input type="text" placeholder="Email address" required><br>
-                <input type="text" placeholder="Password" required><br>
-                <input type="text" placeholder="Confirm password" required><br>
+    <div class="form-container">
+        <form action="#" class="form">
+            <div> 
+                <h1>Sign Up</h1>
+            </div>
+
+            <div class="input-group">
+                <input type="text" placeholder="Name" required>
+            </div>
+
+            <div class="input-group">
+                <input type="text" placeholder="Email address" required>
+            </div>
+
+            <div class="input-group">
+                <input type="text" placeholder="Password" required>
+            </div>
+
+            <div class="input-group">
+                <input type="text" placeholder="Confirm password" required>
+            </div>
             
-            <label for="terms">
-                <input id="terms" type="checkbox" name="terms-conditions" checked required> I agree to the privacy terms and conditions of the website
-            </label><br>
-            <button id="btn" type="submit">SIGN UP</button>
-            <p>Already have an account? <a href="./index.html"><span id="bold">Sign In</span></a></p>
+            <div>
+                <input id="terms" type="checkbox" name="terms-conditions" checked required>
+                <label for="terms">
+                    I agree to the privacy terms and conditions of the website
+                </label>
+            </div>
+
+            <button type="submit">SIGN UP</button>
+            <p>Already have an account? <a href="./signin.html"><span>Sign In</span></a></p>
         </form>
     </div>
     
