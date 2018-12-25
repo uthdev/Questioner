@@ -28,3 +28,29 @@
   margin: 0 auto;
   max-width: 600px;
 }
+
+/* Boxes */
+
+.boxes {
+  padding: 40px 0;
+}
+
+.boxes .container {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.boxes .box {
+  min-width: 200px;
+  padding: 20px;
+  text-align: center;
+  width: 25%;
+}
+
+.boxes .box img {
+  min-width: 90px; 
+  height: 70px;
+}
+
