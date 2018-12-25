@@ -1,1 +1,30 @@
 @import './global.css';
+@import './header.css';
+
+/* showcase styles */
+
+.showcase { 
+  height: 25vw;
+  min-height: 400px;
+  background: rgb(160, 160, 160) url(../img/showcase.jpg) right no-repeat;
+  text-align: center;
+  color: #ffffff;
+  background-size: 100%;
+}
+
+.showcase .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.showcase h1 {
+  font-size: 2em;
+}
+
+.showcase p {
+  font-size: 20px;
+  margin: 0 auto;
+  max-width: 600px;
+}
