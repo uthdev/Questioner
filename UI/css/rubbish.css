@@ -42,36 +42,6 @@
   border-radius: 50%;
 }
 
-
-
-.events {
-  float:right;
-  min-height: 400px;
-}
-.feeds{
-  margin: 0;
-  padding: 0;
-}
-
-.feeds h2 {
-  padding: 0 10px 10px 10px;
-  height: 30px;
-  font-size: 25px;
-  font-weight: bold;
-  background: #3A506B;
-  color: #ffffff;
-}
-
-
-.feeds p {
-  /* line-height: 15px; */
-  font-size: 18px;
-  background: #CD9FCC;
-  color: #0A014F;
-  /* padding: 10px; */
-}
-
-
 .upload {
   float: left;
 
