@@ -30,3 +30,17 @@
   display: flex;
   justify-content: space-between;
 }
+
+@media(max-width: 570px) {
+  .container-header {
+    flex-direction: column;
+  }
+
+  .container-header h1 {
+    font-size: 1.6em;
+  }
+
+  .container-header ul {
+    margin: 0 0 20px;
+  }
+}
