@@ -1,5 +1,6 @@
 /* Global styles
 --------------------------*/
+
 body {
   font: arial, Helvetica, sans-serif;
   padding: 0;
@@ -13,6 +14,17 @@ body {
   overflow: hidden;
 }
 
+.two-column-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 60px auto;
+}
+
+.two-column-container .two-col-column {
+  width: 45%;
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -20,4 +32,14 @@ ul {
 
 a {
   text-decoration: none;
+}
+
+@media(max-width: 890px) {
+  .two-column-container {
+    justify-content: center;
+  }
+
+  .two-column-container .two-col-column {
+    width: 80%;
+  }
 }

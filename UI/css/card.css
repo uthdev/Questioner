@@ -1,0 +1,31 @@
+.card {
+  border: 1px solid #a5a4a4;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 10px 40px;
+}
+
+.card h2 {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 30px 0;
+  text-align: center;
+}
+
+.card p {
+  color: #0A014F;
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+
+.card a {
+  color: initial;
+}
+
+.card.card-striped p {
+  border-bottom: 1px solid #a5a4a4;
+}
+
+.card.card-striped p:last-of-type {
+  border-bottom: none;
+}

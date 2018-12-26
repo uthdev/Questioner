@@ -1,7 +1,9 @@
 @import './btn.css';
+@import './card.css';
 @import './footer.css';
 @import './global.css';
 @import './header.css';
+
 .response input[type="text"] {
   box-sizing: border-box;
   height: 40px;
@@ -10,59 +12,12 @@
   margin: 20px 0 20px 0;
 }
 
-.meetup-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 60px auto;
-}
-
-.meetup-container .questions-container,
-.meetup-container .feeds {
-  width: 45%;
-}
-
-.meetup-container .feeds {
-  border: 1px solid #a5a4a4;
-  border-radius: 5px;
-  box-sizing: border-box;
-  padding: 10px 40px;
-}
-
-.meetup-container .feeds h2 {
-  font-size: 25px;
-  font-weight: bold;
-  margin: 30px 0;
-  text-align: center;
-}
-
-.meetup-container .feeds p {
-  border-bottom: 1px solid #a5a4a4;
-  color: #0A014F;
-  font-size: 18px;
-  padding-bottom: 10px;
-}
-
-.meetup-container .feeds a {
-  color: initial;
-}
-
-.meetup-container .feeds p:last-of-type {
-  border-bottom: none;
-}
-
 @media(max-width: 890px) {
-  .meetup-container {
+  .two-column-container {
     justify-content: center;
   }
-
   .questions-container {
     margin-bottom: 40px;
     text-align: center;
-  }
-
-  .meetup-container .questions-container,
-  .meetup-container .feeds {
-    width: 80%;
   }
 }
