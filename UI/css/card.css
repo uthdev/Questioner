@@ -22,10 +22,10 @@
   color: initial;
 }
 
-.card.card-striped p {
+.card-striped p {
   border-bottom: 1px solid #a5a4a4;
 }
 
-.card.card-striped p:last-of-type {
+.card-striped p:last-of-type {
   border-bottom: none;
-}
+} 

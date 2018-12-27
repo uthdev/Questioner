@@ -1,71 +1,67 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Questioner | Profile</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css"/>
-    <script src="main.js"></script>
-</head>
-<body>
-    <header>
-        <div class="container">
-            <div id="brand">
-                <a href="./index.html"><h1>Questioner</h1></a>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Questioner | Profile</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="css/profile.css"/>
+    </head>
+
+    <body>
+        <header class="header">
+            <div class="container container-header">
+                <a href="./index.html">
+                    <h1>Questioner</h1>
+                </a>
+        
+                <nav>
+                    <ul>
+                        <li class="nav-item"><a href="./question.html">My Meetups</a></li>
+                        <li class="nav-item"><a href="./profile.html">Profile</a></li>
+                        <li class="nav-item"><a href="./index.html">Log Out</a></li>
+                    </ul>
+                </nav>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="./question.html">My Meetups</a></li>
-                    <li><a href="./profile.html">Profile</a></li>
-                    <li><a href="./index.html">Log Out</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <section >
-        <div class="container">
-            <div class="data-container">
-                <div class="formcolor">
+        </header>
+        
+        <section >
+            <div class="container two-column-container">
+                <div class="two-col-column card">
+                    <div class="data">
                         <img src="./img/uthmanphoto.jpg" alt="uthman picture">
                         <h2>Adeleke Uthman</h2>
+                    </div>
+
+                    <div class="boxes">
+                        <h2>Total Questions Posted</h2>
+                        <div class="box">
+                            <p>15</p>
+                        </div>
+                                
+                        <h2>Total Questions Commented On</h2>
+                        <div class="box">
+                            <p>50</p>
+                        </div>
+                    </div>      
                 </div>
-
-                <div id="numfloat">
-                    <h2>Total Questions Posted</h2>
-                    <div class="num">
-                        <p> 15 </p>
-                    </div>
-                    
-                    
-                    <h2>Total Questions Commented On</h2>
-                    <div class="num">
-                        <p> 50 </p>
-                    </div>
-                </div>     
-            
+                <aside  class="two-col-column card card-striped">
+                    <h2>TOP MEETUP QUESTION FEEDS</h2>
+                    <p><a href="question.html">Was sacking Jose Mourinho a good decision?</a></p>        
+                    <p><a href="#">What is the best programming language to learn as a beginner?</a></p>  
+                    <p><a href="#">Will president Buhari be re-elected in 2019?</a></p>   
+                    <p><a href="#">Who will win the premier league this season?</a></p>
+                    <p><a href="#">How come the boot camp challenge is so had?</a></p>            
+                    <p><a href="#">Didn't Andela say zero coding experience?</a></p>              
+                    <p><a href="#">What is the best movie of 2018?</a></p>                       
+                    <p><a href="#">Who is better between Ronaldo and Messi?</a></p>
+                    <p><a href="#">Has Buhari been reeally cloned?</a></p>
+                    <p><a href="#">Who is the best artiste in Nigeria?</a></p>                        
+                </aside>
             </div>
-
-            
-            <aside  class="feeds events">
-                <h2>TOP MEETUP QUESTION FEEDS</h2>
-                <p><a href="question.html">Was sacking Jose Mourinho a good decision?</a></p>        
-                <p><a href="#">What is the best programming language to learn as a beginner?</a></p>  
-                <p><a href="#">Will president Buhari be re-elected in 2019?</a></p>   
-                <p><a href="#">Who will win the premier league this season?</a></p>
-                <p><a href="#">How come the boot camp challenge is so had?</a></p>            
-                <p><a href="#">Didn't Andela say zero coding experience?</a></p>              
-                <p><a href="#">What is the best movie of 2018?</a></p>                       
-                <p><a href="#">Who is better between Ronaldo and Messi?</a></p>
-                <p><a href="#">Has Buhari been reeally cloned?</a></p>
-                <p><a href="#">Who is the best artiste in Nigeria?</a></p>                        
-            </aside>
-        </div>
-
+        </section>
         
-        
-    </section>
-    <footer id="footer">
+        <footer class="footer">
             <div class="container">
                 <p>Follow Us</p>
                 <a href="#"><img src="./img/facebook.png" alt="facebook"></a>
@@ -73,6 +69,6 @@
                 <a href="#"><img src="./img/instagram.jpg" alt="instagram"></a>
                 <h4> © 2018 Questioner inc.</h4>
             </div>
-    </footer>
-</body>
+        </footer>  
+    </body>
 </html>
