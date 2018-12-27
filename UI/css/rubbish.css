@@ -24,23 +24,7 @@
   float: left;
   /* width: 45%; */
 }
-.formcolor {
-  color: #ffffff;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  background: #3A506B;
-  padding: 15px;
-} 
 
-.formcolor input {
-  padding: 4px;
-  height: 25px;
-}
-
-.formcolor img {
-  height: 250px;
-  border-radius: 50%;
-}
 
 .upload {
   float: left;
