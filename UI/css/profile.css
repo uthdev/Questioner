@@ -1,0 +1,36 @@
+@import './card.css';
+@import './footer.css';
+@import './global.css';
+@import './header.css';
+
+.data {
+  color: #ffffff;
+  margin-bottom: 10px; 
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  background: #3A506B;
+} 
+
+.data img {
+  height: 250px;
+  border-radius: 50%;
+  
+
+}
+
+.boxes {
+  padding: 10px 0;
+}
+
+.boxes .box {
+  text-align: center;
+}
+
+@media (max-width: 890px) {
+.two-column-container .two-col-column {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+}
