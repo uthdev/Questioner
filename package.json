@@ -1,0 +1,31 @@
+{
+  "name": "andela_questioner_challenge",
+  "version": "1.0.0",
+  "description": "Crowd source question for a meetup",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha",
+    "build": "./node_modules/.bin/babel ./server/src --out-dir ./server/build",
+    "lint": "eslint **/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uthdev/andela_questioner_challenge.git"
+  },
+  "author": "Adeleke Uthman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uthdev/andela_questioner_challenge/issues"
+  },
+  "homepage": "https://github.com/uthdev/andela_questioner_challenge#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "eslint": "^5.11.1",
+    "mocha": "^5.2.0"
+  }
+}
