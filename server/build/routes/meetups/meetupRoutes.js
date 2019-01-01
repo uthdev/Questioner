@@ -8,26 +8,15 @@ const _express = require('express');
 
 const _express2 = _interopRequireDefault(_express);
 
-const _meetups = require('../../data/meetups');
+const _meetupController = require('../../controllers/meetupController');
 
-const _meetups2 = _interopRequireDefault(_meetups);
+const _meetupController2 = _interopRequireDefault(_meetupController);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // import express from 'express'
-const meetupRoute = _express2.default.Router();
+const meetupRoute = (0, _express2.default)();
 
-// for parsing application/json
-// meetupRoute.use(json());
-
-// // for parsing application/x-ww-form-urlencoded
-// meetupRoute.use(urlencoded());
-
-meetupRoute.get('/', (req, res, next) => {
-  res.status(200).json({
-    status: 200,
-    data: _meetups2.default,
-  });
-});
+meetupRoute.route('/').get(_meetupController2.default.allMeetup);
 
 exports.default = meetupRoute;

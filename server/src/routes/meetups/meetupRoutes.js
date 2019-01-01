@@ -1,20 +1,9 @@
 // import express from 'express'
 import express from 'express';
-import meetups from '../../data/meetups';
+import meetupController from '../../controllers/meetupController';
 
-const meetupRoute = express.Router();
+const meetupRoute = express();
 
-// for parsing application/json
-// meetupRoute.use(json());
-
-// // for parsing application/x-ww-form-urlencoded
-// meetupRoute.use(urlencoded());
-
-meetupRoute.get('/', (req, res) => {
-  res.status(200).json({
-    status: 200,
-    data: meetups,
-  });
-});
+meetupRoute.route('/').get(meetupController.allMeetup);
 
 export default meetupRoute;

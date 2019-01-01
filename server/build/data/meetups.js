@@ -18,7 +18,7 @@ const meetupsDb = [{
 }, {
   id: 3,
   title: 'Naruto freaks meetup, Ibadan',
-  location: 'Palms mall, Heritage Mall, Ibadan',
+  location: 'Film house cinema, Heritage Mall, Ibadan',
   happeningOn: '13/01/2019',
   tags: ['Naruto', 'Hokage', 'No jutsu', 'Rasenga', 'Sasuke'],
 }];
