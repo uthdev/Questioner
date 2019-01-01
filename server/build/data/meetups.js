@@ -1,5 +1,8 @@
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var meetupsDb = [{
   "id": 1,
   "title": "We Talk Sport Meetup",
@@ -20,4 +23,4 @@ var meetupsDb = [{
   "tags": ["Naruto", "Hokage", "No jutsu", "Rasenga", "Sasuke"]
 }];
 
-module.exports = meetupsDb;
+exports.default = meetupsDb;
