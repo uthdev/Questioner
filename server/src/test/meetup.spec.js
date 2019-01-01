@@ -46,6 +46,42 @@ describe('Test all meetups endpoints', ()=> {
         });
     });
   });
-})
+
+  describe('Test for valid post request', () => {
+    it('should create a new meetup', (done) => {
+      const newMeetUp = {
+        title: 'DevOp Meetup, Ibadan',
+        location: 'NLNG Building, UI, Ibadan',
+        happeningOn: new Date('12-12-2018'),
+        tags: ['coding', 'Test', 'programming', 'Development', 'Web']
+      }
+      chai.request(app)
+      .post('/api/v1/meetups')
+      .send(newMeetUp)
+      .end((req, res) => {
+        expect(res).to.have.status(200);
+        assert.isObject(res.body, 'is an object of the new meetup posted')
+      });
+    });
+  });
+
+  describe('Test for missing field on a new meetup post', () => {
+    it('should not create a new meetup and should return an error message', () => {
+      const newMeetUp = {
+        title: 'DevOp Meetup, Ibadan',
+        location: '',
+        happeningOn: new Date('12-12-2018'),
+        tags: ['coding', 'Test', 'programming', 'Development', 'Web']
+      }
+      chai.request(app)
+      .post('/api/v1/meetups')
+      .send(newMeetUp)
+      .end((req, res) => {
+        expect(res).to.have.status(400);
+        expect(res.body.error).to.be.equal('Please Enter the mIssing field(s)')
+      });
+    });
+  });
+});
   
 
