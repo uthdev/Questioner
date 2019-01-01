@@ -18,33 +18,34 @@ describe('Test all meetups endpoints', ()=> {
         done();
       });
     });
-    });
+  });
     
-    //Test a valid meetup id
-    describe('/Get api/v1/meetups/:id', () => {
+  //Test a valid meetup id
+  describe('/Get api/v1/meetups/:id', () => {
       it('should return a specific meetup when a valid ID is supplied', (done) => {
         chai.request(app)
         .get('/api/v1/meetups/1')
         .end((error, res) => {
           expect(res).to.have.status(200);
-          expect(res.body.data.id).to.be.a('number');
+          expect(res.body.data[0].id).to.be.a('number');
           assert.isObject(res.body, 'is an object containing the meetup details');
+          done();
         });
       });
-    });
+  });
 
-    //valid character but not availiable
-    describe('Check for invalid meetup Id', () => {
-      it('should return a 404 error', (done) => {
-        chai.request(app)
-          .get('/api/v1/meetups/2340')
-          .end((error, res) => {
-            expect(res).to.have.status(404);
-            expect(res.body.error).to.equal('The meetup with given ID was not found');
-            done();
-          });
-      });
+  //valid character but not availiable
+  describe('Check for invalid meetup Id', () => {
+    it('should return a 404 error', (done) => {
+      chai.request(app)
+        .get('/api/v1/meetups/2340')
+        .end((error, res) => {
+          expect(res).to.have.status(404);
+          expect(res.body.error).to.equal('The meetup with given ID was not found');
+          done();
+        });
     });
+  });
 })
   
 
