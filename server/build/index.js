@@ -1,16 +1,31 @@
 'use strict';
 
-var express = require('express');
-var app = express();
+var _express = require('express');
 
-// set port for server to listen on
-var Port = process.env.PORT || 5000;
+var _express2 = _interopRequireDefault(_express);
+
+var _meetupRoutes = require('./routes/meetups/meetupRoutes');
+
+var _meetupRoutes2 = _interopRequireDefault(_meetupRoutes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var app = (0, _express2.default)();
 
 // support parsing of application/json type post data
-app.use(express.json());
+app.use(_express2.default.json());
 
 // support parsing of application/x-www-form-urlencoded post data
-app.use(express.urlencoded());
+app.use(_express2.default.urlencoded());
+
+app.get('/api/v1/', function (req, res) {
+  res.status(200).json({ message: 'Welcome to the Questioner App' });
+});
+
+app.use('/api/v1/meetups', _meetupRoutes2.default);
+
+// set port for server to listen on
+var port = process.env.PORT || 5000;
 
 // Subscribe server to a particular port
 app.listen(port, function () {
