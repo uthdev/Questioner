@@ -52,7 +52,7 @@ describe('Test all meetups endpoints', ()=> {
       const newMeetUp = {
         title: 'DevOp Meetup, Ibadan',
         location: 'NLNG Building, UI, Ibadan',
-        happeningOn: new Date('12-12-2018'),
+        happeningOn: new Date('12-12-2019'),
         tags: ['coding', 'Test', 'programming', 'Development', 'Web']
       }
       chai.request(app)
@@ -60,7 +60,8 @@ describe('Test all meetups endpoints', ()=> {
       .send(newMeetUp)
       .end((req, res) => {
         expect(res).to.have.status(200);
-        assert.isObject(res.body, 'is an object of the new meetup posted')
+        assert.isArray(res.body.data, 'is an object of the new meetup posted');
+        done();
       });
     });
   });
@@ -77,11 +78,10 @@ describe('Test all meetups endpoints', ()=> {
       .post('/api/v1/meetups')
       .send(newMeetUp)
       .end((req, res) => {
-        expect(res).to.have.status(400);
-        expect(res.body.error).to.be.equal('Please Enter the mIssing field(s)')
+        expect(res).to.have.status(422);
+        expect(res.body.error).to.be.equal('"location" is not allowed to be empty');
       });
     });
   });
-});
   
-
+});
