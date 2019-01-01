@@ -4,9 +4,10 @@
   "description": "Crowd source question for a meetup",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node ./server/build/index.js",
     "test": "mocha ./server/src/test/**/**.spec.js --compilers js:babel-core/register --watch",
     "build": "./node_modules/.bin/babel ./server/src --out-dir ./server/build",
+    "dev": "nodemon --exec babel-node ./server/src/index.js",
     "lint": "eslint **/*.js"
   },
   "repository": {
