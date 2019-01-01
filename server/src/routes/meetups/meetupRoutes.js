@@ -1,6 +1,6 @@
 // import express from 'express'
-const express = require('express');
-const meetups = require('../../data/meetups');
+import express from 'express';
+import meetups from '../../data/meetups';
 
 const meetupRoute = express.Router();
 
@@ -10,11 +10,11 @@ const meetupRoute = express.Router();
 // // for parsing application/x-ww-form-urlencoded
 // meetupRoute.use(urlencoded());
 
-meetupRoute.get('/', (req, res,next) => {
+meetupRoute.get('/', (req, res) => {
   res.status(200).json({
     status: 200,
-    data: meetups
+    data: meetups,
   });
-}); 
+});
 
-module.exports =  meetupRoute;
+export default meetupRoute;
