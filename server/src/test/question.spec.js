@@ -71,7 +71,7 @@ describe('Test all question endpoint', () => {
         expect(res.body.data[0]).to.have.property('title');
         expect(res.body.data[0]).to.have.property('body');
         expect(res.body.data[0]).to.have.property('votes');
-        expect(res.body.data[0].votes).to.be.equal(20);
+        expect(res.body.data[0].votes).to.be.equal(18);
       done();
       });
     });
