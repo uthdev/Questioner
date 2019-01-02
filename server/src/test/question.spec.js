@@ -46,7 +46,7 @@ describe('Test all question endpoint', () => {
   });
 
   describe('Upvote a question', () => {
-    it('should increase the vote property of a question', (done) => {
+    it('should increase the vote property of a question by one', (done) => {
       chai.request(app)
       .patch('/api/v1/questions/3/upvote')
       .end((req, res) => {
@@ -61,6 +61,21 @@ describe('Test all question endpoint', () => {
     });
   });
 
+  describe('Downvote a question', () => {
+    it('should decrease the vote property of a question by one', (done) => {
+      chai.request(app)
+      .patch('/api/v1/questions/2/downvote')
+      .end((req, res) => {
+        assert.isObject(res.body, 'is an object of the upvoted question');
+        expect(res.body.data[0]).to.have.property('meetup');
+        expect(res.body.data[0]).to.have.property('title');
+        expect(res.body.data[0]).to.have.property('body');
+        expect(res.body.data[0]).to.have.property('votes');
+        expect(res.body.data[0].votes).to.be.equal(21);
+      done();
+      });
+    });
+  });
 });
 
   
