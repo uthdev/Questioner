@@ -9,5 +9,4 @@ meetupRoute.route('/upcoming').get(meetupController.upcomingMeetup);
 meetupRoute.route('/:id').get(meetupController.getAMeetup);
 meetupRoute.route('/').post(meetupController.createMeetup);
 
-
 export default meetupRoute;
