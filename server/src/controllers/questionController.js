@@ -21,7 +21,7 @@ class QuestionController {
         error: error.details[0].message
       })
     }
-    const newQuestiion = {
+    const newQuestion = {
       id: questionsDB.length + 1,
       createdOn: new Date(),
       createdBy: req.body.user,
@@ -30,16 +30,40 @@ class QuestionController {
       body: req.body['body of question'],
       votes: 0
     };
-    questionsDB.push(newQuestiion);
+    questionsDB.push(newQuestion);
+    const {createdBy : user, meetup, title, body} = newQuestion;
     res.status(200).json({
       status: 200,
       data: [{
-        user: newQuestiion.createdBy,
-        meetup: newQuestiion.meetup,
-        title: newQuestiion.title,
-        body: newQuestiion.body
+        user: user,
+        meetup: meetup,
+        title: title,
+        body: body
       }]
     });
+  }
+
+  static upvoteQuestion (req, res) {
+    //get a specific question
+    const lookedUpQuestion = questionsDB.find(question => question.id === parseInt(req.params.id));
+    if(!lookedUpQuestion) return res.status(404).json({
+      status: 404,
+      error: 'No question matching the given ID'
+    })
+    
+    //update the vote property of the question
+    //return course
+    lookedUpQuestion.votes += 1;
+    const{meetup, title, body, votes} = lookedUpQuestion
+     res.status(200).json({
+       status: 200,
+       data: [{
+         meetup: meetup,
+         title: title,
+         body: body,
+         votes: votes
+       }]
+     });
   }
 
 }
