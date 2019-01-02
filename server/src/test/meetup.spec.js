@@ -26,10 +26,13 @@ describe('Test all meetups endpoints', ()=> {
         chai.request(app)
         .get('/api/v1/meetups/1')
         .end((error, res) => {
-          expect(res).to.have.status(200);
-          expect(res.body.data[0].id).to.be.a('number');
           assert.isObject(res.body, 'is an object containing the meetup details');
-          done();
+          expect(res).to.have.status(200);
+          expect(res.body.data[0]).to.have.property('id');
+          expect(res.body.data[0]).to.have.property('title');
+          expect(res.body.data[0]).to.have.property('happeningOn');
+          expect(res.body.data[0]).to.have.property('tags');
+        done();
         });
       });
   });
@@ -41,6 +44,7 @@ describe('Test all meetups endpoints', ()=> {
         .get('/api/v1/meetups/2340')
         .end((error, res) => {
           expect(res).to.have.status(404);
+          expect(res.body).to.have.property('error');
           expect(res.body.error).to.equal('The meetup with given ID was not found');
           done();
         });
@@ -60,14 +64,18 @@ describe('Test all meetups endpoints', ()=> {
       .send(newMeetUp)
       .end((req, res) => {
         expect(res).to.have.status(200);
-        assert.isArray(res.body.data, 'is an object of the new meetup posted');
+        expect(res.body.data[0]).to.have.property('id');
+        expect(res.body.data[0]).to.have.property('title');
+        expect(res.body.data[0]).to.have.property('happeningOn');
+        expect(res.body.data[0]).to.have.property('tags');
+        assert.isObject(res.body, 'is an object of the new meetup posted');
         done();
       });
     });
   });
 
   describe('Test for missing field on a new meetup post', () => {
-    it('should not create a new meetup and should return an error message', () => {
+    it('should not create a new meetup and should return an error message', (done) => {
       const newMeetUp = {
         title: 'DevOp Meetup, Ibadan',
         location: '',
@@ -79,7 +87,21 @@ describe('Test all meetups endpoints', ()=> {
       .send(newMeetUp)
       .end((req, res) => {
         expect(res).to.have.status(422);
+        expect(res.body).to.have.property('error')
         expect(res.body.error).to.be.equal('"location" is not allowed to be empty');
+      done();
+      });
+    });
+  });
+
+  describe('Test /GET /api/v1/meetups/upcoming endpoint', () => {
+    it('should return all upcoming meetups', (done) => {
+      chai.request(app)
+      .get('/api/v1/meetups/upcoming')
+      .end((req, res) => {
+        expect(res).to.have.status(200);
+        assert.isArray(res.body.data, 'is an array of upcoming meetups');
+      done();
       });
     });
   });
