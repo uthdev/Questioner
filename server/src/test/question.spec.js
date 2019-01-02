@@ -54,7 +54,7 @@ describe('Test all question endpoint', () => {
         vote: 19
       }
       chai.request(app)
-      .patch('/api/questions/:id/upvote')
+      .patch('/api/v1/questions/:id/upvote')
       .send(question)
       .end((req, res) => {
         assert.isObject(res.body, 'is an object of the upvoted question')
