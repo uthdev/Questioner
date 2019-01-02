@@ -16,9 +16,9 @@ class MeetupController {
   static upcomingMeetup(req, res) {
     const presentDate = new Date();
     const data = [];
-    for(let i = 0; i < meetupsDb; i++) {
+    for(let i = 0; i < meetupsDb.length; i++) {
       let date = meetupsDb[i].happeningOn;
-      if(Date.parse(date) < Date.parse(presentDate)){
+      if(date > presentDate){
         data.push(meetupsDb[i]);
       }
     }
