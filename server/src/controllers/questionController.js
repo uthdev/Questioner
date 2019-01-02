@@ -66,6 +66,30 @@ class QuestionController {
      });
   }
 
+  static downvoteQuestion (req, res) {
+    //get a specific question
+    const lookedUpQuestion = questionsDB.find(question => question.id === parseInt(req.params.id));
+    if(!lookedUpQuestion) return res.status(404).json({
+      status: 404,
+      error: 'No question matching the given ID'
+    })
+    
+    //update the vote property of the question
+    //return course
+    lookedUpQuestion.votes -= 1;
+    const{meetup, title, body, votes} = lookedUpQuestion
+     res.status(200).json({
+       status: 200,
+       data: [{
+         meetup: meetup,
+         title: title,
+         body: body,
+         votes: votes
+       }]
+     });
+  }
+
+
 }
 
 export default QuestionController;
