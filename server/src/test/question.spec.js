@@ -47,22 +47,15 @@ describe('Test all question endpoint', () => {
 
   describe('Upvote a question', () => {
     it('should increase the vote property of a question', (done) => {
-      const question = {
-        meetup: 3,
-        title: 'Uchiha and Senju Clan',
-        body: 'Which clan has the highest potential between the uchiha and senju clan?',
-        vote: 19
-      }
       chai.request(app)
-      .patch('/api/v1/questions/:id/upvote')
-      .send(question)
+      .patch('/api/v1/questions/3/upvote')
       .end((req, res) => {
-        assert.isObject(res.body, 'is an object of the upvoted question')
+        assert.isObject(res.body, 'is an object of the upvoted question');
         expect(res.body.data[0]).to.have.property('meetup');
         expect(res.body.data[0]).to.have.property('title');
         expect(res.body.data[0]).to.have.property('body');
-        expect(res.body.data[0]).to.have.property('vote');
-        expect(res.body.data[0].vote).to.be.equal(20);
+        expect(res.body.data[0]).to.have.property('votes');
+        expect(res.body.data[0].votes).to.be.equal(21);
       done();
       });
     });
