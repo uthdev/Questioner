@@ -9,9 +9,25 @@ class MeetupController {
       data: meetupsDb,
     }) : res.status(404).json({
       status: 404,
-      message: 'No Meetup',
+      data: []
     });
   }
+
+  static upcomingMeetup(req, res) {
+    const presentDate = new Date();
+    const data = [];
+    for(let i = 0; i < meetupsDb; i++) {
+      let date = meetupsDb[i].happeningOn;
+      if(Date.parse(date) < Date.parse(presentDate)){
+        data.push(meetupsDb[i]);
+      }
+    }
+    
+    res.status(200).json({
+      status: 200,
+      data: data,
+    })
+  } 
 
   static getAMeetup(req, res) {
     const meetup = meetupsDb.find(meet => meet.id === parseInt(req.params.id));
@@ -22,7 +38,7 @@ class MeetupController {
     res.status(200).json({
       status: 200,
       data: [meetup]
-  });
+    });
   }
 
   static createMeetup(req, res) {
@@ -59,8 +75,8 @@ class MeetupController {
       status: 200,
       data: [newMeetup]
     });
-
   }
+
 }
 
 export default MeetupController;
