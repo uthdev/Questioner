@@ -1,6 +1,6 @@
 import Joi from 'joi';
 import meetupsDb from '../data/meetups';
-import { join } from 'path';
+
 
 class MeetupController {
   static allMeetup(req, res) {
@@ -18,7 +18,7 @@ class MeetupController {
     const data = [];
     for(let i = 0; i < meetupsDb.length; i++) {
       let date = meetupsDb[i].happeningOn;
-      if(date > presentDate){
+      if(Date.parse(date) > Date.parse(presentDate)){
         data.push(meetupsDb[i]);
       }
     }

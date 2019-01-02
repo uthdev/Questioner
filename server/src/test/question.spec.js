@@ -8,12 +8,10 @@ chai.use(chaiHttp);
 describe('/POST question', () => {
   it('should not post a question without title field', (done) => {
     const question = {
-      createdOn: new Date('02-01-2019'),
-      createdBy: 1,
+      user: 1,
       meetup: 3,
       title: '',
-      body: 'Who is stronger between Naruto and Sasuke?',
-      votes: 10
+      "body of question": 'Who is stronger between Naruto and Sasuke?'
     };
     chai.request(app)
     .post('/api/v1/questions')
@@ -28,26 +26,22 @@ describe('/POST question', () => {
 
   it('should post a question', (done) => {
     const question = {
-      createdOn: new Date('02-01-2019'),
-      createdBy: 1,
+      user: 1,
       meetup: 3,
-      title: '',
-      body: 'Who is stronger between Naruto and Sasuke?',
-      votes: 10
+      title: 'naruto and sasuke',
+      "body of question": 'Who is stronger between Naruto and Sasuke?'
     };
     chai.request(app)
     .post('/api/v1/questions')
     .send(question)
     .end((req, res) => {
       assert.isObject(res.body, 'is an object of the new question posted');
-      expect(res.body.data).to.have.property('createdOn');
-      expect(res.body.data).to.have.property('createdBy');
-      expect(res.body.data).to.have.property('meetup');
-      expect(res.body.data).to.have.property('title');
-      expect(res.body.data).to.have.property('body');
-      expect(res.body.data).to.have.property('votes');
+      expect(res.body.data[0]).to.have.property('user');
+      expect(res.body.data[0]).to.have.property('meetup');
+      expect(res.body.data[0]).to.have.property('title');
+      expect(res.body.data[0]).to.have.property('body');
     done();
     });
   });
-  
+
 });
