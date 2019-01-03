@@ -111,7 +111,7 @@ describe('Test all meetups endpoints', ()=> {
       const rsvp = {
         meetup: 3,
         user: 1,
-        response: 'Yes'
+        response: 'yes'
       }
       chai.request(app)
       .post('/api/v1/meetups/3/rsvps')
@@ -121,7 +121,7 @@ describe('Test all meetups endpoints', ()=> {
         expect(res.body.data[0]).to.have.property('meetup');
         expect(res.body.data[0]).to.have.property('topic');
         expect(res.body.data[0]).to.have.property('status');
-        expect(res.body.data[0].status).to.be.equal('Yes');
+        expect(res.body.data[0].status).to.be.equal('yes');
       done();
       });
     });
