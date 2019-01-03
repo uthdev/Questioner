@@ -11,7 +11,7 @@ describe('Test all meetups endpoints', ()=> {
     it('should return all meetups', (done) => {
       chai.request(app)
       .get('/api/v1/meetups')
-      .end((error, res) => {
+      .end((err, res) => {
         expect(res).to.have.status(200);
         assert.isArray(res.body.data, 'is an array of meetups');
         expect(res.body.data.length).to.be.equal(3);
@@ -25,7 +25,7 @@ describe('Test all meetups endpoints', ()=> {
       it('should return a specific meetup when a valid ID is supplied', (done) => {
         chai.request(app)
         .get('/api/v1/meetups/1')
-        .end((error, res) => {
+        .end((err, res) => {
           assert.isObject(res.body, 'is an object containing the meetup details');
           expect(res).to.have.status(200);
           expect(res.body.data[0]).to.have.property('id');
@@ -42,7 +42,7 @@ describe('Test all meetups endpoints', ()=> {
     it('should return a 404 error', (done) => {
       chai.request(app)
         .get('/api/v1/meetups/2340')
-        .end((error, res) => {
+        .end((err, res) => {
           expect(res).to.have.status(404);
           expect(res.body).to.have.property('error');
           expect(res.body.error).to.equal('The meetup with given ID was not found');
@@ -62,7 +62,7 @@ describe('Test all meetups endpoints', ()=> {
       chai.request(app)
       .post('/api/v1/meetups')
       .send(newMeetUp)
-      .end((req, res) => {
+      .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res.body.data[0]).to.have.property('id');
         expect(res.body.data[0]).to.have.property('title');
@@ -85,7 +85,7 @@ describe('Test all meetups endpoints', ()=> {
       chai.request(app)
       .post('/api/v1/meetups')
       .send(newMeetUp)
-      .end((req, res) => {
+      .end((err, res) => {
         expect(res).to.have.status(422);
         expect(res.body).to.have.property('error')
         expect(res.body.error).to.be.equal('"location" is not allowed to be empty');
@@ -98,9 +98,30 @@ describe('Test all meetups endpoints', ()=> {
     it('should return all upcoming meetups', (done) => {
       chai.request(app)
       .get('/api/v1/meetups/upcoming')
-      .end((req, res) => {
+      .end((err, res) => {
         expect(res).to.have.status(200);
         assert.isArray(res.body.data, 'is an array of upcoming meetups');
+      done();
+      });
+    });
+  });
+
+  describe('Test /POST /api/v1/meetup/:id/rsvp endpoint', () => {
+    it('should post a response to meetup RSVP', (done) => {
+      const rsvp = {
+        meetup: 3,
+        user: 1,
+        response: 'Yes'
+      }
+      chai.request(app)
+      .post('/api/v1/meetups/3/rsvp')
+      .send(rsvp)
+      .end((err, res) => {
+        assert.isObject(res.body, 'is an object of the response to the rsvp');
+        expect(res.body.data[0]).to.have.property('meetup');
+        expect(res.body.data[0]).to.have.property('topic');
+        expect(res.body.data[0]).to.have.property('status');
+        expect(res.body.data[0].status).to.be.equal('Yes');
       done();
       });
     });
