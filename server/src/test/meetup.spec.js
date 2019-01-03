@@ -114,7 +114,7 @@ describe('Test all meetups endpoints', ()=> {
         response: 'Yes'
       }
       chai.request(app)
-      .post('/api/v1/meetups/3/rsvp')
+      .post('/api/v1/meetups/3/rsvps')
       .send(rsvp)
       .end((err, res) => {
         assert.isObject(res.body, 'is an object of the response to the rsvp');
