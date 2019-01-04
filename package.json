@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./server/build/index.js",
-    "test": "mocha ./server/src/test/**/**.spec.js --require babel-core/register",
+    "test": "mocha ./server/src/test/**/**.spec.js --require babel-core/register --exit",
     "build": "./node_modules/.bin/babel ./server/src --out-dir ./server/build",
     "dev": "nodemon --exec babel-node ./server/src/index.js",
     "lint": "eslint --fix **/*.js"
