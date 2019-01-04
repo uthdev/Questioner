@@ -1,8 +1,8 @@
-"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
+
+Object.defineProperty(exports, '__esModule', {
+  value: true,
 });
-var rsvpsDb = [];
+const rsvpsDb = [];
 
 exports.default = rsvpsDb;

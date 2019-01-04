@@ -8,15 +8,15 @@ const app = express();
 app.use(express.json());
 
 // support parsing of application/x-www-form-urlencoded post data
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/api/v1/', (req, res) => {
   res.status(200).json({ message: 'Welcome to the Questioner App' });
 });
-//meetup route
+// meetup route
 app.use('/api/v1/meetups', meetupRoute);
 
-//question route
+// question route
 app.use('/api/v1/questions', questionRoute);
 
 // set port for server to listen on

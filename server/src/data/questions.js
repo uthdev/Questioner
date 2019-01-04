@@ -6,7 +6,7 @@ const questionsDb = [
     meetup: 3,
     title: 'Naruto and Sasuke',
     body: 'Who is stronger between Naruto and Sasuke?',
-    votes: 5
+    votes: 5,
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ const questionsDb = [
     meetup: 1,
     title: 'Jose Mourihno and Man U',
     body: 'Was sacking mourihno the solution to Man U problem?',
-    votes: 19
+    votes: 19,
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const questionsDb = [
     meetup: 3,
     title: 'Hokage: Tobirama, Minato and Naruto',
     body: 'Who is the fastest of all the Hokages?',
-    votes: 20
+    votes: 20,
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ const questionsDb = [
     meetup: 2,
     title: 'Marvel and DC',
     body: 'Who produced the best Superhero Movie of 2018?',
-    votes: 15
+    votes: 15,
   },
   {
     id: 5,
@@ -42,8 +42,8 @@ const questionsDb = [
     meetup: 1,
     title: 'Premier league 2018/2019',
     body: 'Can Liverpool really win the premier league this season?',
-    votes: 12
-  }
+    votes: 12,
+  },
 ];
 
 export default questionsDb;
