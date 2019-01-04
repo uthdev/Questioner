@@ -62,7 +62,7 @@ describe('Test all meetups endpoints', () => {
         .post('/api/v1/meetups')
         .send(newMeetUp)
         .end((err, res) => {
-          expect(res).to.have.status(200);
+          expect(res).to.have.status(201);
           expect(res.body.data[0]).to.have.property('id');
           expect(res.body.data[0]).to.have.property('topic');
           expect(res.body.data[0]).to.have.property('happeningOn');
@@ -85,7 +85,7 @@ describe('Test all meetups endpoints', () => {
         .post('/api/v1/meetups')
         .send(newMeetUp)
         .end((err, res) => {
-          expect(res).to.have.status(422);
+          expect(res).to.have.status(400);
           expect(res.body).to.have.property('error');
           expect(res.body.error).to.be.equal('"location" is not allowed to be empty');
           done();

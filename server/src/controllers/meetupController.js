@@ -10,25 +10,19 @@ class MeetupController {
       data: meetupsDb,
     }) : res.status(404).json({
       status: 404,
-      data: [],
+      error: "No Meetup found",
     });
   }
 
   static upcomingMeetups(req, res) {
     const presentDate = new Date();
-    const upcomings = [];
-    for (let i = 0; i < meetupsDb.length; i++) {
-      const date = meetupsDb[i].happeningOn;
-      if (Date.parse(date) > Date.parse(presentDate)) {
-        upcomings.push(meetupsDb[i]);
-      }
-    }
+    const upcomings = meetupsDb.filter(meetup => meetup.happeningOn > new Date());
     return (upcomings.length > 0) ? res.status(200).json({
       status: 200,
       data: upcomings,
     }) : res.status(404).json({
       status: 404,
-      data: [],
+      error: "No Upcoming meetups",
     });
   }
 
@@ -45,7 +39,7 @@ class MeetupController {
     const {
       id, title: topic, location, happeningOn, tags,
     } = meetup;
-    res.status(200).json({
+    return res.status(200).json({
       status: 200,
       data: [{
         id,
@@ -63,7 +57,7 @@ class MeetupController {
       const schema = {
         title: Joi.string().min(3).required(),
         location: Joi.string().min(3).required(),
-        happeningOn: Joi.date().min(new Date()).iso().required(),
+        happeningOn: Joi.date().min(new Date()).required(),
         tags: Joi.array().items(Joi.string()).required(),
       };
       return Joi.validate(meetup, schema);
@@ -71,8 +65,8 @@ class MeetupController {
 
     const { error } = validateMeetup(req.body);
     if (error) {
-      return res.status(422).json({
-        status: 422,
+      return res.status(400).json({
+        status: 400,
         error: error.details[0].message,
       });
     }
@@ -90,8 +84,8 @@ class MeetupController {
     const {
       id, title: topic, location, happeningOn, tags,
     } = newMeetup;
-    res.status(200).json({
-      status: 200,
+    return res.status(201).json({
+      status: 201,
       data: [{
         id,
         topic,
@@ -123,8 +117,8 @@ class MeetupController {
 
     const { error } = validateRSVP(req.body);
     if (error) {
-      return res.status(422).json({
-        status: 422,
+      return res.status(400).json({
+        status: 400,
         error: error.details[0].message,
       });
     }
@@ -137,8 +131,8 @@ class MeetupController {
     };
     const { meetup, response: status } = rsvp;
     rsvpsDb.push(rsvp);
-    res.status(200).json({
-      status: 200,
+    return res.status(201).json({
+      status: 201,
       data: [{
         meetup,
         topic,
