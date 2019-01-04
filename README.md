@@ -1,9 +1,10 @@
 # The Questioner
 
 [![Build Status](https://travis-ci.org/uthdev/andela_questioner_challenge.svg?branch=develop)](https://travis-ci.org/uthdev/andela_questioner_challenge)
-Questioner helps the meetup organizer prioritize questions to be answered. Other users can vote on asked questions and they bubble to the top or bottom of the log.
 
 [![Coverage Status](https://coveralls.io/repos/github/uthdev/andela_questioner_challenge/badge.svg?branch=develop)](https://coveralls.io/github/uthdev/andela_questioner_challenge?branch=develop)
+
+Questioner helps the meetup organizer prioritize questions to be answered. Other users can vote on asked questions and they bubble to the top or bottom of the log.
 
 ## Required Features
 
