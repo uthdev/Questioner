@@ -13,7 +13,6 @@ class QuestionController {
       }
       return Joi.validate(question, schema);
     }
-
     const { error } = validateQuestion(req.body);
     if(error) {
       return res.status(422).json({
@@ -51,44 +50,38 @@ class QuestionController {
       error: 'No question matching the given ID'
     })
     
-    //update the vote property of the question
-    //return course
     lookedUpQuestion.votes += 1;
-    const{meetup, title, body, votes} = lookedUpQuestion
-     res.status(200).json({
-       status: 200,
-       data: [{
-         meetup: meetup,
-         title: title,
-         body: body,
-         votes: votes
-       }]
-     });
+    const { meetup, title, body, votes } = lookedUpQuestion;
+    res.status(200).json({
+      status: 200,
+      data: [{
+        meetup: meetup,
+        title: title,
+        body: body,
+        votes: votes
+      }]
+    });
   }
 
   static downvoteQuestion (req, res) {
-    //get a specific question
     const lookedUpQuestion = questionsDB.find(question => question.id === parseInt(req.params.id));
     if(!lookedUpQuestion) return res.status(404).json({
       status: 404,
       error: 'No question matching the given ID'
     })
     
-    //update the vote property of the question
-    //return course
     lookedUpQuestion.votes -= 1;
-    const{meetup, title, body, votes} = lookedUpQuestion
-     res.status(200).json({
-       status: 200,
-       data: [{
-         meetup: meetup,
-         title: title,
-         body: body,
-         votes: votes
-       }]
-     });
+    const{meetup, title, body, votes} = lookedUpQuestion;
+    res.status(200).json({
+      status: 200,
+      data: [{
+        meetup: meetup,
+        title: title,
+        body: body,
+        votes: votes
+      }]
+    });
   }
-
 
 }
 

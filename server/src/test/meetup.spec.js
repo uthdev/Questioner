@@ -1,6 +1,5 @@
 import chai, { assert, expect } from 'chai';
 import chaiHttp from 'chai-http';
-
 import app from '../index';
 
 //Test all meetups endpoint
@@ -29,10 +28,10 @@ describe('Test all meetups endpoints', ()=> {
           assert.isObject(res.body, 'is an object containing the meetup details');
           expect(res).to.have.status(200);
           expect(res.body.data[0]).to.have.property('id');
-          expect(res.body.data[0]).to.have.property('title');
+          expect(res.body.data[0]).to.have.property('topic');
           expect(res.body.data[0]).to.have.property('happeningOn');
           expect(res.body.data[0]).to.have.property('tags');
-        done();
+          done();
         });
       });
   });
@@ -65,7 +64,7 @@ describe('Test all meetups endpoints', ()=> {
       .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res.body.data[0]).to.have.property('id');
-        expect(res.body.data[0]).to.have.property('title');
+        expect(res.body.data[0]).to.have.property('topic');
         expect(res.body.data[0]).to.have.property('happeningOn');
         expect(res.body.data[0]).to.have.property('tags');
         assert.isObject(res.body, 'is an object of the new meetup posted');

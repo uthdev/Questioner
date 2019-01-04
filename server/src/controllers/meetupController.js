@@ -4,7 +4,7 @@ import rsvpsDb from '../data/rsvps';
 
 
 class MeetupController {
-  static allMeetup(req, res) {
+  static allMeetups(req, res) {
     return (meetupsDb.length > 0) ? res.status(200).json({
       status: 200,
       data: meetupsDb,
@@ -14,42 +14,51 @@ class MeetupController {
     });
   }
 
-  static upcomingMeetup(req, res) {
+  static upcomingMeetups(req, res) {
     const presentDate = new Date();
-    const data = [];
+    const upcomings = [];
     for(let i = 0; i < meetupsDb.length; i++) {
       let date = meetupsDb[i].happeningOn;
       if(Date.parse(date) > Date.parse(presentDate)){
-        data.push(meetupsDb[i]);
+        upcomings.push(meetupsDb[i]);
       }
     }
-    
-    res.status(200).json({
+    return (upcomings.length > 0) ? res.status(200).json({
       status: 200,
-      data: data,
-    })
+      data: upcomings,
+    }) : res.status(404).json({
+      status: 404,
+      data: []
+    });
   } 
 
-  static getAMeetup(req, res) {
+  static getMeetup(req, res) {
     const meetup = meetupsDb.find(meet => meet.id === parseInt(req.params.id));
     if(!meetup) return res.status(404).json({
       status: 404,
       error: "The meetup with given ID was not found"
     })
+
+    const { id, title : topic, location, happeningOn, tags } = meetup;
     res.status(200).json({
       status: 200,
-      data: [meetup]
+      data: [{
+        id: id,
+        topic: topic,
+        location: location,
+        happeningOn: happeningOn,
+        tags: tags
+      }]
     });
   }
 
   static createMeetup(req, res) {
-    
-    //Validation
+    //Validation 
     const validateMeetup = (meetup) => {
       const schema = {
         title: Joi.string().min(3).required(),
         location: Joi.string().min(3).required(),
-        happeningOn: Joi.date().min('1-1-2019').iso().required(),
+        happeningOn: Joi.date().min(new Date()).iso().required(),
         tags: Joi.array().items(Joi.string()).required()
       }
       return Joi.validate(meetup, schema);
@@ -72,32 +81,36 @@ class MeetupController {
     };
 
     meetupsDb.push(newMeetup);
+
+    const { id, title : topic, location, happeningOn, tags } = newMeetup;
     res.status(200).json({
       status: 200,
-      data: [newMeetup]
+      data: [{
+        id: id,
+        topic: topic,
+        location: location,
+        happeningOn: happeningOn,
+        tags: tags
+      }]
     });
   }
 
   static rsvpMeetup(req, res) {
-    //lookup a meetup
-    //if it doesnt exist, return 404 error
     const lookedUpMeetup = meetupsDb.find(meet => meet.id === parseInt(req.params.id));
     if(!lookedUpMeetup) return res.status(404).json({
       status: 404,
       error: "The meetup with given ID was not found"
     })
     const { title : topic } = lookedUpMeetup;
-    //if found, validate the req
     const validateRSVP = (rsvp) => {
       const schema = {
         meetup: Joi.number().integer().positive().required(),
         user: Joi.number().integer().positive().required(),
         response: Joi.any().valid(['yes', 'no', 'maybe']).required()
       }
-
       return Joi.validate(rsvp, schema);
     }
-    //if request fails validation, return error 400 bad request
+
     const { error } = validateRSVP(req.body);
     if(error) {
       return res.status(422).json({
