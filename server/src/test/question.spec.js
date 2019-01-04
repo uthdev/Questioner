@@ -16,7 +16,7 @@ describe('Test all question endpoint', () => {
         .post('/api/v1/questions')
         .send(question)
         .end((err, res) => {
-          expect(res).to.have.status(422);
+          expect(res).to.have.status(400);
           expect(res.body).to.have.property('error');
           expect(res.body.error).to.be.equal('"title" is not allowed to be empty');
           done();

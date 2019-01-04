@@ -15,8 +15,8 @@ class QuestionController {
     };
     const { error } = validateQuestion(req.body);
     if (error) {
-      return res.status(422).json({
-        status: 422,
+      return res.status(400).json({
+        status: 400,
         error: error.details[0].message,
       });
     }
@@ -33,8 +33,8 @@ class QuestionController {
     const {
       createdBy: user, meetup, title, body,
     } = newQuestion;
-    res.status(200).json({
-      status: 200,
+    return res.status(201).json({
+      status: 201,
       data: [{
         user,
         meetup,
@@ -59,7 +59,7 @@ class QuestionController {
     const {
       meetup, title, body, votes,
     } = lookedUpQuestion;
-    res.status(200).json({
+    return res.status(200).json({
       status: 200,
       data: [{
         meetup,
@@ -84,7 +84,7 @@ class QuestionController {
     const {
       meetup, title, body, votes,
     } = lookedUpQuestion;
-    res.status(200).json({
+    return res.status(200).json({
       status: 200,
       data: [{
         meetup,

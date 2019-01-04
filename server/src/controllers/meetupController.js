@@ -10,19 +10,18 @@ class MeetupController {
       data: meetupsDb,
     }) : res.status(404).json({
       status: 404,
-      error: "No Meetup found",
+      error: 'No Meetup found',
     });
   }
 
   static upcomingMeetups(req, res) {
-    const presentDate = new Date();
     const upcomings = meetupsDb.filter(meetup => meetup.happeningOn > new Date());
     return (upcomings.length > 0) ? res.status(200).json({
       status: 200,
       data: upcomings,
     }) : res.status(404).json({
       status: 404,
-      error: "No Upcoming meetups",
+      error: 'No Upcoming meetups',
     });
   }
 
