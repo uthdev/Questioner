@@ -9,8 +9,10 @@
     width: min-content;
 } 
 
-.form .input-group {
+.input-group {
     margin: 10px;
+    display: flex;
+    /* width: 33vw; */
 }
 
 .form .input-group input[type="text"] {
@@ -18,10 +20,10 @@
     border-radius: 3px;
     box-sizing: border-box;
     height: 40px;
-    max-width: 320px;
-    min-width: 200px;
+    /* max-width: 320px;
+    min-width: 200px; */
     padding: 0 8px;
-    width: 33vw;
+    margin-right: 5px;
 }
 
 .form button {
@@ -32,4 +34,10 @@
     font-size: 20px;
 }
 
+.form-control {
+    width: 15vw;
+}
 
+.full-spanned {
+    width: 30.2vw;
+}
