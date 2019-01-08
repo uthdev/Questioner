@@ -1,5 +1,5 @@
 .btn {
-  background: #333333;
+  background: #3A506B;
   border: 0;
   border-radius: 5px;
   color: #ffffff;
@@ -8,4 +8,10 @@
 
 .btn-small {
   padding: 5px 20px;
+}
+
+.btn-del {
+  background: #3A506B;
+  border-radius: 5px;
+  color: #ffffff;
 }

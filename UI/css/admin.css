@@ -4,12 +4,32 @@
 @import './global.css';
 @import './header.css';
 
-.response input[type="text"] {
+.response .form-control {
+  border: 1px solid rgb(151, 153, 152);
+  border-radius: 3px;
   box-sizing: border-box;
   height: 40px;
   padding: 0 10px;
-  width: 200px;
+  width: 30vw;
   margin: 20px 0 20px 0;
   display: block;
 }
 
+.top {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: #3A506B;
+  color: #ffffff;
+}
+
+.para-group {
+  border:  1px solid #a5a4a4;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.para-group .side {
+  display: flex;
+}
