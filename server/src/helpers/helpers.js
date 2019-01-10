@@ -1,4 +1,5 @@
 import Joi from 'joi';
+
 const helpers = {};
 
 helpers.validateMeetup = (meetup) => {
@@ -9,6 +10,15 @@ helpers.validateMeetup = (meetup) => {
     tags: Joi.array().items(Joi.string()).required(),
   };
   return Joi.validate(meetup, schema);
+};
+
+helpers.validateRSVP = (rsvp) => {
+  const schema = {
+    meetup: Joi.number().integer().positive().required(),
+    user: Joi.number().integer().positive().required(),
+    response: Joi.any().valid(['yes', 'no', 'maybe']).required(),
+  };
+  return Joi.validate(rsvp, schema);
 };
 
 export default helpers;
