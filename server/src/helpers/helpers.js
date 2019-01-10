@@ -21,4 +21,14 @@ helpers.validateRSVP = (rsvp) => {
   return Joi.validate(rsvp, schema);
 };
 
+helpers.validateQuestion = (question) => {
+  const schema = {
+    user: Joi.number().integer().positive().required(),
+    meetup: Joi.number().integer().positive().required(),
+    title: Joi.string().min(3).required(),
+    'body of question': Joi.string().min(5).required(),
+  };
+  return Joi.validate(question, schema);
+};
+
 export default helpers;
