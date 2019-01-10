@@ -2,8 +2,6 @@
 @import './global.css';
 @import './header.css';
 
-/* showcase styles */
-
 .showcase { 
   height: 25vw;
   min-height: 400px;

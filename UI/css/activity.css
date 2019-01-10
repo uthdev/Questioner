@@ -25,7 +25,6 @@
 }
 
 .meetup-container {
-  /* margin: 20px 0; */
   padding: 10px;
   border-bottom: 1px #3A506B solid;
 }
@@ -88,5 +87,4 @@
   .meetup-container .dropdown-content {
     display: block;
   }
-  
 }
