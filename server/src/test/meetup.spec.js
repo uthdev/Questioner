@@ -2,10 +2,8 @@ import chai, { assert, expect } from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../index';
 
-// Test all meetups endpoint
 chai.use(chaiHttp);
 describe('Test all meetups endpoints', () => {
-  // get all meetups
   describe('/Get api/v1/meetups/', () => {
     it('should return all meetups', (done) => {
       chai.request(app)
@@ -19,7 +17,6 @@ describe('Test all meetups endpoints', () => {
     });
   });
 
-  // Test a valid meetup id
   describe('/Get api/v1/meetups/:id', () => {
     it('should return a specific meetup when a valid ID is supplied', (done) => {
       chai.request(app)
@@ -36,7 +33,6 @@ describe('Test all meetups endpoints', () => {
     });
   });
 
-  // valid character but not availiable
   describe('Check for invalid meetup Id', () => {
     it('should return a 404 error', (done) => {
       chai.request(app)
