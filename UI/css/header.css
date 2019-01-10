@@ -121,18 +121,33 @@
   }
 
   .container-header ul {
-    margin: 0 0 20px;
+    margin: 0 0 10px;
   }
 
   .container-header .nav-item {
-    margin-left: 5px;
+    margin-left: 0;
   }
 
   .nav .btn-seek {
     height: 25px;
     border-radius: 5px;
-    width: 100px;
-    margin-left: 50px;
+    width: 50px;
+    margin-left: 20px;
     margin-top: 5px;
+  }
+  
+  .header a {
+    font-size: 14px;
+    padding: 5px 8px;
+  }
+
+  .nav input[type="text"] {
+    height: 30px;
+    padding: 0 5px;
+    width: 120px;
+  }
+  .dropdown {
+    margin-right:20px;
+    padding-right: 20px;
   }
 }

@@ -15,6 +15,11 @@
   display: block;
 }
 
+.response h2 {
+  text-align: center;
+  color: #3A506B;
+}
+
 .top {
   margin: 0;
   padding: 0;
@@ -32,4 +37,10 @@
 
 .para-group .side {
   display: flex;
+}
+
+@media(max-width: 890px) {
+  .response .form-control {
+    width: 60vw;
+  }
 }

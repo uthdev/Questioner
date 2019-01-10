@@ -6,57 +6,134 @@
     <title>Questioner | Questions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/question.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
 <body>
     <header class="header">
-        <div class="container container-header">
-            <a href="./index.html">
-                <h1>Questioner</h1>
-            </a>
-    
-            <nav>
-                <ul>
-                    <li class="nav-item"><a href="./question.html">My Meetups</a></li>
-                    <li class="nav-item"><a href="./profile.html">Profile</a></li>
-                    <li class="nav-item"><a href="./index.html">Log Out</a></li>
-                </ul>
-            </nav>
-        </div>
+      <div class="container container-header">
+        <a href="./index.html">
+          <h1>Questioner</h1>
+        </a>
+        
+        <nav>
+          <div class="nav">
+            <ul>
+              <li class="nav-item"><a href="./question.html">Meetups</a></li>
+            </ul>
+            <form class="nav-item" action="#">
+              <input type="text" placeholder="Search.." name="search">
+            </form>
+            <img src="./img/uthmanphoto.jpg" alt="Avatar" class="avatar">
+            <div class="dropdown">
+              <button class="dropbtn"> 
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="./profile.html">profile</a>
+                <a href="#">My Meetups</a>
+                <a href="./index.html">Sign out</a>
+              </div>
+            </div>            
+          </div>
+        </nav>
+      </div>
     </header>
 
     <section>
         <div class="container two-column-container">
             <div class="two-col-column questions-container">
-                <div class="quetions-topic">
-                    <h2>WE TALK SPORT MEET UP</h2>
+                <div class="questions-topic">
+                    <h1>WE TALK SPORT MEET UP</h1>
                 </div>
 
                 <div class="questions">
-                    <h3>Questions Posted</h3>
-
                     <div class="question">
-                        <p>Was sacking Jose Mourinho a good decision?</p>
-                        <button class="btn btn-small">Upvote</button>
-                        <button class="btn btn-small">Downvote</button>
+                        <div class="dropdown">
+                            <h3>Was sacking Jose Mourinho a good decision?</h3>
+                            <div class="flex-btn">
+                                <button class="btn btn-green"><i class="far fa-thumbs-up"></i></button>
+                                <button class="btn btn-red"><i class="far fa-thumbs-down"></i></button>
+                            </div>
+                            <div class="dropdown-content">
+                                <p>
+                                This is a good discussion question. It is hot trending topic 
+                                that i will like to be discussed at the meet up
+                                </p>
+                                <p>
+                                    I'm not so sure if everybody will be interested in discussing this question. It 
+                                    will only attract interest from Man U fans. A more general question should be answered
+                                </p>
+                                <p>
+                                    Anybody that watches football will surely be interested in this question 
+                                    not only Man U fans.
+                                </p>
+                                <p>
+                                    There we go again. We always seem to forget that this group is not only for 
+                                    football lovers but sport generally. Question about sport like basketball 
+                                    should also be sorced for the meetup
+                                </p>
+                                <form action="#" class="feedback-form">
+                                    <textarea
+                                        name="comment"
+                                        id="comment"
+                                        rows="4"
+                                        tabindex="4"
+                                        required="required"
+                                        placeholder="share your opinion"
+                                    ></textarea>
+                                    <button class="btn" type="submit">
+                                        Post a comment
+                                    </button>
+                                </form>
+                            </div>
+                            
+                        </div>
+                        
                     </div>
                     
                     <div class="question">
-                        <p>Who is going to win the premier league this season?</p>
-                        <button class="btn btn-small">Upvote</button>
-                        <button class="btn btn-small">Downvote</button>
-                    </div>
-                    
-                    <div class="question">
-                        <p>Can Arsenal make the top four this season? </p>
-                        <button class="btn btn-small">Upvote</button>
-                        <button class="btn btn-small">Downvote</button>
-                    </div>
-
-                    <div class="question">
-                        <p>Who is better between Ronaldo and Messi?</p>
-                        <button class="btn btn-small">Upvote</button>
-                        <button class="btn btn-small">Downvote</button>
-                    </div>     
+                            <div class="dropdown">
+                                <h3>Who is going to win the premier league this season?</h3>
+                                <div class="flex-btn">
+                                    <button class="btn btn-green"><i class="far fa-thumbs-up"></i></button>
+                                    <button class="btn btn-red"><i class="far fa-thumbs-down"></i></button>
+                                </div>
+                                <div class="dropdown-content">
+                                    <p>
+                                    This is a good discussion question. It is hot trending topic 
+                                    that i will like to be discussed at the meet up
+                                    </p>
+                                    <p>
+                                        I'm not so sure if everybody will be interested in discussing this question. It 
+                                        will only attract interest from Man U fans. A more general question should be answered
+                                    </p>
+                                    <p>
+                                        Anybody that watches football will surely be interested in this question 
+                                        not only Man U fans.
+                                    </p>
+                                    <p>
+                                        There we go again. We always seem to forget that this group is not only for 
+                                        football lovers but sport generally. Question about sport like basketball 
+                                        should also be sorced for the meetup
+                                    </p>
+                                    <form action="#" class="feedback-form">
+                                        <textarea
+                                            name="comment"
+                                            id="comment"
+                                            rows="4"
+                                            tabindex="4"
+                                            required="required"
+                                            placeholder="share your opinion"
+                                        ></textarea>
+                                        <button class="btn" type="submit">
+                                            Post a comment
+                                        </button>
+                                    </form>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
                 </div>
 
                 <div class="response">

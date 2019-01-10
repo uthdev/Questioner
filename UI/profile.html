@@ -6,24 +6,41 @@
         <title>Questioner | Profile</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="css/profile.css"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
     </head>
 
     <body>
         <header class="header">
             <div class="container container-header">
                 <a href="./index.html">
-                    <h1>Questioner</h1>
+                <h1>Questioner</h1>
                 </a>
-        
+                
                 <nav>
+                <div class="nav">
                     <ul>
-                        <li class="nav-item"><a href="./question.html">My Meetups</a></li>
-                        <li class="nav-item"><a href="./profile.html">Profile</a></li>
-                        <li class="nav-item"><a href="./index.html">Log Out</a></li>
+                    <li class="nav-item"><a href="./question.html">Meetups</a></li>
                     </ul>
+                    <form class="nav-item" action="#">
+                    <input type="text" placeholder="Search.." name="search">
+                    </form>
+                    <img src="./img/uthmanphoto.jpg" alt="Avatar" class="avatar">
+                    <div class="dropdown">
+                    <button class="dropbtn"> 
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="./profile.html">profile</a>
+                        <a href="#">My Meetups</a>
+                        <a href="./index.html">Sign out</a>
+                    </div>
+                    </div>            
+                </div>
                 </nav>
             </div>
         </header>
+            
         
         <section >
             <div class="container two-column-container">
