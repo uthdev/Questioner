@@ -24,7 +24,7 @@ const app = (0, _express2.default)();
 app.use(_express2.default.json());
 
 // support parsing of application/x-www-form-urlencoded post data
-app.use(_express2.default.urlencoded());
+app.use(_express2.default.urlencoded({ extended: true }));
 
 app.get('/api/v1/', (req, res) => {
   res.status(200).json({ message: 'Welcome to the Questioner App' });

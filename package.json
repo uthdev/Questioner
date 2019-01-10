@@ -8,7 +8,8 @@
     "test": "nyc --reporter=lcov --reporter=text-lcov mocha ./server/src/test/**/**.spec.js --require babel-core/register --exit | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage && rm -rf ./.nyc_output",
     "build": "./node_modules/.bin/babel ./server/src --out-dir ./server/build",
     "dev": "nodemon --exec babel-node ./server/src/index.js",
-    "lint": "eslint --fix **/*.js"
+    "lint": "eslint --fix **/*.js",
+    "spec": "mocha ./server/src/test/**/**.spec.js --require babel-core/register --exit"
   },
   "repository": {
     "type": "git",

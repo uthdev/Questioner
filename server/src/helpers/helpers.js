@@ -1,3 +1,4 @@
+import Joi from 'joi';
 const helpers = {};
 
 helpers.validateMeetup = (meetup) => {
@@ -9,3 +10,5 @@ helpers.validateMeetup = (meetup) => {
   };
   return Joi.validate(meetup, schema);
 };
+
+export default helpers;

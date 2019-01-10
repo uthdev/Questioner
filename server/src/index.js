@@ -23,6 +23,6 @@ app.use('/api/v1/questions', questionRoute);
 const port = process.env.PORT || 5000;
 
 // Subscribe server to a particular port
-app.listen(port);
+app.listen(port, console.log(`Server running on port ${port}...`));
 
 export default app;
