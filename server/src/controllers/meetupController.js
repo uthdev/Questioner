@@ -1,7 +1,6 @@
-import Joi from 'joi';
 import meetupsDb from '../data/meetups';
 import rsvpsDb from '../data/rsvps';
-import helpers from '../helpers/helpers'
+import helpers from '../helpers/helpers';
 
 
 class MeetupController {
@@ -95,16 +94,8 @@ class MeetupController {
       });
     }
     const { title: topic } = lookedUpMeetup;
-    const validateRSVP = (rsvp) => {
-      const schema = {
-        meetup: Joi.number().integer().positive().required(),
-        user: Joi.number().integer().positive().required(),
-        response: Joi.any().valid(['yes', 'no', 'maybe']).required(),
-      };
-      return Joi.validate(rsvp, schema);
-    };
 
-    const { error } = validateRSVP(req.body);
+    const { error } = helpers.validateRSVP(req.body);
     if (error) {
       return res.status(400).json({
         status: 400,
