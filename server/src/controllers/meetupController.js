@@ -1,6 +1,7 @@
 import Joi from 'joi';
 import meetupsDb from '../data/meetups';
 import rsvpsDb from '../data/rsvps';
+import helpers from '../helpers/helpers'
 
 
 class MeetupController {
@@ -51,18 +52,7 @@ class MeetupController {
   }
 
   static createMeetup(req, res) {
-    // Validation
-    const validateMeetup = (meetup) => {
-      const schema = {
-        title: Joi.string().min(3).required(),
-        location: Joi.string().min(3).required(),
-        happeningOn: Joi.date().min(new Date()).required(),
-        tags: Joi.array().items(Joi.string()).required(),
-      };
-      return Joi.validate(meetup, schema);
-    };
-
-    const { error } = validateMeetup(req.body);
+    const { error } = helpers.validateMeetup(req.body);
     if (error) {
       return res.status(400).json({
         status: 400,
