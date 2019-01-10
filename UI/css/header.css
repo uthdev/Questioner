@@ -1,5 +1,3 @@
-/* .Header  
----------------------------*/
 .container-header {
   padding: 0 20px 0 20px;
 }
@@ -53,7 +51,6 @@
   box-sizing: border-box;
   height: 40px;
   padding: 0 8px;
-  /* margin-right: 5px; */
 }
 
 .header .avatar {
