@@ -1,5 +1,7 @@
-/* .Header  
----------------------------*/
+.container-header {
+  padding: 0 20px 0 20px;
+}
+
 .header {
   background: #3A506B;
   border-bottom: #6FFFE9 3px solid;
@@ -14,9 +16,10 @@
   color: #6fffe9;
   text-transform: uppercase;
   font-size: 18px;
+  padding: 10px 14px;
 }
 
-.header li {
+.header li, .header .nav-item {
   display: inline;
 }
 
@@ -31,6 +34,80 @@
   justify-content: space-between;
 }
 
+.container-header .nav {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.nav .btn-seek {
+  height: 40px;
+  border-radius: 5px;
+}
+
+.nav input[type="text"] {
+  border: 1px solid #6fffe9;
+  border-radius: 15px;
+  box-sizing: border-box;
+  height: 40px;
+  padding: 0 8px;
+}
+
+.header .avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 10px;
+} 
+
+.dropdown .dropbtn {
+  font-size: 18px;
+  text-transform: uppercase;  
+  border: none;
+  outline: none;
+  color:#6FFFE9;
+  padding: 10px 14px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.nav a:hover, .dropdown:hover .dropbtn {
+  border: 1px #ACE4AA solid;
+  border-radius: 15px;
+}
+
+.nav .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #3A506B;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.nav .dropdown-content a {
+  float: none;
+  color: #6FFFE9;
+  padding: 10px 14px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.nav .dropdown-content a:hover {
+  background-color:#3A506B;
+}
+
+.nav .dropdown:hover .dropdown-content {
+  display: block;
+}
+@media(max-width: 890px){
+  .container-header {
+    flex-direction: column;
+  }
+}
 @media(max-width: 570px) {
   .container-header {
     flex-direction: column;
@@ -41,6 +118,33 @@
   }
 
   .container-header ul {
-    margin: 0 0 20px;
+    margin: 0 0 10px;
+  }
+
+  .container-header .nav-item {
+    margin-left: 0;
+  }
+
+  .nav .btn-seek {
+    height: 25px;
+    border-radius: 5px;
+    width: 50px;
+    margin-left: 20px;
+    margin-top: 5px;
+  }
+  
+  .header a {
+    font-size: 14px;
+    padding: 5px 8px;
+  }
+
+  .nav input[type="text"] {
+    height: 30px;
+    padding: 0 5px;
+    width: 120px;
+  }
+  .dropdown {
+    margin-right:20px;
+    padding-right: 20px;
   }
 }

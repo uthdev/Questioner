@@ -1,11 +1,33 @@
 .btn {
-  background: #333333;
+  background: #3A506B;
   border: 0;
   border-radius: 5px;
   color: #ffffff;
   padding: 13.5px 20px;
 }
 
-.btn-small {
+.btn-green {
   padding: 5px 20px;
+  margin-bottom: 10px;
+  background: green;
+}
+
+.btn-green:hover {
+  cursor: pointer;
+}
+
+.btn-red:hover {
+  cursor: pointer;
+}
+
+.btn-red {
+  padding: 5px 20px;
+  margin-bottom: 10px;
+  background: red;
+}
+
+.btn-del {
+  background: #3A506B;
+  border-radius: 5px;
+  color: #ffffff;
 }
