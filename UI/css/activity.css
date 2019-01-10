@@ -1,0 +1,81 @@
+@import './footer.css';
+@import './global.css';
+@import './header.css';
+
+.two-column-container .container-col {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.container-col {
+  border: 1px #111111 solid;
+  border-radius: 9px;
+  padding: 20px;
+  width: 60%;
+  margin: 20px;
+}
+ .aside {
+   width: 20%
+ }
+.container-col h2 {
+  text-align: center;
+  color: #3A506B;
+}
+
+.meetup-container {
+  /* margin: 20px 0; */
+  padding: 10px;
+  border-bottom: 1px #3A506B solid;
+}
+
+.meetup-container h3 {
+  margin: 0;
+  background-color:#3A506B;
+  border-radius: 3px;
+  color: white;
+  padding: 5px;
+  text-align: center;
+}
+
+.meetup-container .dropdown-content {
+  padding-left: 10px;
+  font-size: 18px;
+  
+}
+
+.meetup-container .dropdown-content .btn-seek {
+  height: 40px;
+  background: #3A506B;
+  color: #ffffff;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+
+.meetup-container .dropdown-content input[type="text"] {
+  border: 1px solid #3A506B;
+  border-radius: 5px;
+  box-sizing: border-box;
+  height: 40px;
+  padding: 0 8px;
+  min-width: 200px;
+  margin-left: 20px;
+}
+
+.meetup-container .dropdown-content {
+  display: none;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.meetup-container:hover .dropdown-content {
+  display: block;
+}
+
+@media(max-width: 1040px) {
+  .aside {
+    width: 60%;
+  }
+}
