@@ -4,6 +4,7 @@
   "description": "Crowd source question for a meetup",
   "main": "index.js",
   "scripts": {
+    "prestart": "npm run build",
     "start": "node ./server/build/index.js",
     "test": "nyc --reporter=lcov --reporter=text-lcov mocha ./server/src/test/**/**.spec.js --require babel-core/register --exit | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage && rm -rf ./.nyc_output",
     "build": "./node_modules/.bin/babel ./server/src --out-dir ./server/build",
