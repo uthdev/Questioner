@@ -5,11 +5,8 @@ Questioner helps the meetup organizer prioritize questions to be answered. Other
 ## Build Status
 
 [![Build Status](https://travis-ci.org/uthdev/andela_questioner_challenge.svg?branch=develop)](https://travis-ci.org/uthdev/andela_questioner_challenge)
-
 [![Coverage Status](https://coveralls.io/repos/github/uthdev/andela_questioner_challenge/badge.svg?branch=develop)](https://coveralls.io/github/uthdev/andela_questioner_challenge?branch=develop)
-
 [![Maintainability](https://api.codeclimate.com/v1/badges/4d3d3ddd0fb69506c98d/maintainability)](https://codeclimate.com/github/uthdev/andela_questioner_challenge/maintainability)
-
 [![Test Coverage](https://api.codeclimate.com/v1/badges/4d3d3ddd0fb69506c98d/test_coverage)](https://codeclimate.com/github/uthdev/andela_questioner_challenge/test_coverage)
 
 
