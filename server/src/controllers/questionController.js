@@ -1,19 +1,9 @@
-import Joi from 'joi';
 import questionsDB from '../data/questions';
+import helpers from '../helpers/helpers';
 
 class QuestionController {
   static postQuestion(req, res) {
-    // validation
-    const validateQuestion = (question) => {
-      const schema = {
-        user: Joi.number().integer().positive().required(),
-        meetup: Joi.number().integer().positive().required(),
-        title: Joi.string().min(3).required(),
-        'body of question': Joi.string().min(5).required(),
-      };
-      return Joi.validate(question, schema);
-    };
-    const { error } = validateQuestion(req.body);
+    const { error } = helpers.validateQuestion(req.body);
     if (error) {
       return res.status(400).json({
         status: 400,
@@ -45,7 +35,6 @@ class QuestionController {
   }
 
   static upvoteQuestion(req, res) {
-    // get a specific question
     const lookedUpQuestion = questionsDB.find(question => question.id
       === parseInt(req.params.id, 10));
     if (!lookedUpQuestion) {
