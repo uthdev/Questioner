@@ -13,3 +13,5 @@ coverage/
 .vscode
 
 server/build/
+
+.env
