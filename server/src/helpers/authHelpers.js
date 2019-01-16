@@ -8,21 +8,13 @@ authHelpers.validateUsers = (user) => {
   const userSchema = {
     firstname: Joi.string().regex(/^[A-Z]+$/).uppercase().required(),
     lastname: Joi.string().regex(/^[A-Z]+$/).uppercase().required(),
-    email: Joi.string().email().lowercase().required(),
+    email: Joi.string().email().lowercase(),
     phonenumber: Joi.string().required(),
     password: Joi.string().min(7).alphanum().required().strict(),
     confirmPassword: Joi.string().valid(Joi.ref('password')).required(),
     username: Joi.string().required()
   };
   return Joi.validate(user, userSchema );
-};
-
-authHelpers.validateSignIn = (user) => {
-  const loginSchema = {
-    email: Joi.string().email().lowercase().required(),
-    password: Joi.string().min(7).alphanum().required().strict()
-  };
-  return Joi.validate(user, loginSchema);
 };
 
 authHelpers.generateToken = (user) => {
@@ -34,7 +26,6 @@ authHelpers.generateToken = (user) => {
       expiresIn: '1d' 
     });
 }
-
 
 authHelpers.hashPassword = (password) => {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8))
