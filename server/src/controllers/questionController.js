@@ -16,7 +16,7 @@ class QuestionController {
       createdBy: req.body.user,
       meetup: req.body.meetup,
       title: req.body.title,
-      body: req.body['body of question'],
+      body: req.body.body,
       votes: 0,
     };
     questionsDB.push(newQuestion);
