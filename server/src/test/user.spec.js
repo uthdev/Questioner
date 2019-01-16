@@ -26,6 +26,7 @@ describe('Test users signup routes', () => {
       });
     });
   });
+
 });
 
 describe('Test signin endpoints', () => {
@@ -80,3 +81,6 @@ describe('Test signin endpoints', () => {
     })
   })
 })
+
+});
+

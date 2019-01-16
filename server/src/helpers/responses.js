@@ -1,18 +1,19 @@
 const responses = {};
 
 responses.errorProcessing = (req, res) => {
-  return res.status(500).json({
-    status: 500,
-    error: "Error connecting..."
+  return res.status(451).json({
+    status: 451,
+    error: "error processing data"
   })
 }
 
 responses.errorAccountExist = (req, res) => {
   return res.status(403).json({
-    status: 403,
+    status: 409,
     error: "Account already exist"
   })
 }
+
 
 responses.nonExistingAccount = (req, res) => {
   return res.status(404).json({
@@ -27,4 +28,5 @@ responses.incorrectPassword = (req, res) => {
     error: 'Incorrect Password'
   })
 }
+export default responses;
 export default responses;

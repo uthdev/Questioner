@@ -1,7 +1,6 @@
 import Joi from 'joi';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
-
 const authHelpers = {};
 
 authHelpers.validateUsers = (user) => {
@@ -16,6 +15,7 @@ authHelpers.validateUsers = (user) => {
   };
   return Joi.validate(user, userSchema );
 };
+
 
 authHelpers.validateSignIn = (user) => {
   const loginSchema = {
@@ -33,15 +33,14 @@ authHelpers.generateToken = (user) => {
     { 
       expiresIn: '1d' 
     });
-}
-
+};
 
 authHelpers.hashPassword = (password) => {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8))
-}
+};
 
 authHelpers.comparePassword = (reqPassword, hashedPassword) => {
   return bcrypt.compareSync(reqPassword, hashedPassword)
-}
+};
 
 export default authHelpers;
