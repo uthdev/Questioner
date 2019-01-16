@@ -26,7 +26,7 @@ helpers.validateQuestion = (question) => {
     user: Joi.number().integer().positive().required(),
     meetup: Joi.number().integer().positive().required(),
     title: Joi.string().min(3).required(),
-    'body of question': Joi.string().min(5).required(),
+    body: Joi.string().min(5).required(),
   };
   return Joi.validate(question, schema);
 };
