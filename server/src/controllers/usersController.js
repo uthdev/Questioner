@@ -11,11 +11,9 @@ class UsersController {
         error: error.details[0].message,
       });
     }
-    console.log(req.body);
     const hashedPassword = authHelpers.hashPassword(req.body.password);
     return db.query(`SELECT email FROM users WHERE email = '${req.body.email}'`, (err, result) =>{
       if (err) {
-        console.log(err);
         return responses.errorProcessing(req, res);
       }
       if(result.rowCount > 0) {
@@ -57,11 +55,9 @@ class UsersController {
     const {email, password} = req.body;
     return db.query(`SELECT * FROM users WHERE email = '${email}'`, (err, result) =>{
       if (err) {
-        console.log(err);
         return responses.errorProcessing(req, res);
       }
       if(result.rowCount > 0) { 
-        console.log(result);
         const user = result.rows[0];
         if (authHelpers.comparePassword(password, user.password.trim())) {
           delete user.password;
