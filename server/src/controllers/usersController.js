@@ -45,41 +45,6 @@ class UsersController {
       })
     })
   }
-
-  static signIn(req, res) {
-    const { error } = authHelpers.validateSignIn(req.body);
-    if (error) {
-      return res.status(400).json({
-        status: 400,
-        error: error.details[0].message,
-      });
-    }
-    const {email, password} = req.body;
-    return db.query(`SELECT * FROM users WHERE email = '${email}'`, (err, result) =>{
-      if (err) {
-        console.log(err);
-        return responses.errorProcessing(req, res);
-      }
-      if(result.rowCount > 0) { 
-        console.log(result);
-        const user = result.rows[0];
-        if (authHelpers.comparePassword(password, user.password.trim())) {
-          delete user.password;
-          const token = authHelpers.generateToken(user);
-          return res.status(200).json({
-            status: 200, 
-            data: [{
-              token,
-              user,
-            }]
-          });
-        }  
-        return responses.incorrectPassword(req, res);
-      } else {
-        return responses.nonExistingAccount(req, res);
-      }
-    })
-  }
 }
 
 export default UsersController; 
