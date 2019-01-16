@@ -26,6 +26,12 @@ class MeetupController {
   }
 
   static getMeetup(req, res) {
+    if (!Number.isInteger(Number(req.params.id))) {
+      return res.status(400).send({
+        status: 400,
+        error: "Invalid ID"
+      });
+    }
     const meetup = meetupsDb.find(meet => meet.id
       === parseInt(req.params.id, 10));
     if (!meetup) {
@@ -85,6 +91,13 @@ class MeetupController {
   }
 
   static rsvpMeetup(req, res) {
+    if (!Number.isInteger(Number(req.params.id))) {
+      return res.status(400).send({
+        status: 400,
+        error: "Invalid ID"
+      });
+    }
+    
     const lookedUpMeetup = meetupsDb.find(meet => meet.id
        === parseInt(req.params.id, 10));
     if (!lookedUpMeetup) {

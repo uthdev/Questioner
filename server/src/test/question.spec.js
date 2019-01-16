@@ -10,7 +10,7 @@ describe('Test all question endpoint', () => {
         user: 1,
         meetup: 3,
         title: '',
-        'body of question': 'Who is stronger between Naruto and Sasuke?',
+        body: 'Who is stronger between Naruto and Sasuke?',
       };
       chai.request(app)
         .post('/api/v1/questions')
@@ -28,7 +28,7 @@ describe('Test all question endpoint', () => {
         user: 1,
         meetup: 3,
         title: 'naruto and sasuke',
-        'body of question': 'Who is stronger between Naruto and Sasuke?',
+        body: 'Who is stronger between Naruto and Sasuke?',
       };
       chai.request(app)
         .post('/api/v1/questions')
