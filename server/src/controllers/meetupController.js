@@ -1,58 +1,71 @@
-import meetupsDb from '../data/meetups';
-import rsvpsDb from '../data/rsvps';
+import moment from 'moment';
 import helpers from '../helpers/helpers';
+import responses from '../helpers/responses'
+import db from '../config/index';
+
 
 
 class MeetupController {
   static allMeetups(req, res) {
-    return (meetupsDb.length > 0) ? res.status(200).json({
-      status: 200,
-      data: meetupsDb,
-    }) : res.status(404).json({
-      status: 404,
-      error: 'No Meetup found',
+    const queryString = 'SELECT * FROM meetups';
+    return db.query(queryString, [], (err, result) => {
+      if (err) {
+        return responses.errorProcessing(req, res);
+      }
+      console.log(result.rows[0]);
+      const meetups = result.rows;
+      return (result.rowCount > 0) ? res.status(200).json({
+        status: 200,
+        data: meetups,
+      }) : res.status(404).json({
+        status: 404,
+        error: 'No Meetup found',
+      });
     });
   }
 
   static upcomingMeetups(req, res) {
-    const upcomings = meetupsDb.filter(meetup => meetup.happeningOn > new Date());
-    return (upcomings.length > 0) ? res.status(200).json({
-      status: 200,
-      data: upcomings,
-    }) : res.status(404).json({
-      status: 404,
-      error: 'No Upcoming meetups',
+    const queryString = `SELECT * FROM meetups WHERE happeningOn < '${moment}'`;
+    return db.query(queryString, [], (err, result) => {
+      if (err) {
+        return responses.errorProcessing(req, res);
+      }
+      console.log(result.rows);
+      const meetups = result.rows;
+      return (result.rowCount > 0) ? res.status(200).json({
+        status: 200,
+        data: meetups,
+      }) : res.status(404).json({
+        status: 404,
+        error: 'No Upcoming meetups',
+      });
     });
   }
 
   static getMeetup(req, res) {
-    if (!Number.isInteger(Number(req.params.id))) {
-      return res.status(400).send({
-        status: 400,
-        error: "Invalid ID"
+    const { id } = req.params;
+    const queryString = 'SELECT * FROM meetups WHERE id = $1';
+    return db.query(queryString, [id], (err, result) => {
+      if (err) {
+        return responses.errorProcessing(req, res);
+      }
+      if (result.rowCount <= 0) {
+        return responses.nonExistingMeetup(req, res)
+      }
+      const meetup = result.rows[0];
+      const {
+        id, topic, location, happeningon, tags,
+      } = meetup;
+      return res.status(200).json({
+        status: 200,
+        data: [{
+          id,
+          topic,
+          location,
+          happeningon,
+          tags,
+        }],
       });
-    }
-    const meetup = meetupsDb.find(meet => meet.id
-      === parseInt(req.params.id, 10));
-    if (!meetup) {
-      return res.status(404).json({
-        status: 404,
-        error: 'The meetup with given ID was not found',
-      });
-    }
-
-    const {
-      id, title: topic, location, happeningOn, tags,
-    } = meetup;
-    return res.status(200).json({
-      status: 200,
-      data: [{
-        id,
-        topic,
-        location,
-        happeningOn,
-        tags,
-      }],
     });
   }
 
@@ -64,73 +77,73 @@ class MeetupController {
         error: error.details[0].message,
       });
     }
-
-    const newMeetup = {
-      id: meetupsDb.length + 1,
-      title: req.body.title,
-      location: req.body.location,
-      happeningOn: req.body.happeningOn,
-      tags: req.body.tags,
-    };
-
-    meetupsDb.push(newMeetup);
-
-    const {
-      id, title: topic, location, happeningOn, tags,
-    } = newMeetup;
-    return res.status(201).json({
-      status: 201,
-      data: [{
-        id,
-        topic,
-        location,
-        happeningOn,
-        tags,
-      }],
-    });
+    const { title, location, happeningOn, tags } = req.body; 
+    const queryString = 'INSERT INTO meetups (topic, location, happeningOn, tags, createdOn ) VALUES($1, $2, $3, $4, $5) RETURNING *';
+    const values = [title, location, happeningOn, tags, new Date()];
+    return db.query(queryString, values, (err, result) =>{
+      if (err) {
+        return responses.errorProcessing(req, res);
+      }
+      if(result.rowCount > 0) { 
+        const newMeetup = result.rows[0];
+        const {
+          id, topic, location, happeningon, tags,
+        } = newMeetup;
+        return res.status(201).json({
+          status: 201,
+          data: [{
+            id,
+            topic,
+            location,
+            happeningon,
+            tags,
+          }],
+        });
+      }
+    })
   }
-
   static rsvpMeetup(req, res) {
-    if (!Number.isInteger(Number(req.params.id))) {
-      return res.status(400).send({
-        status: 400,
-        error: "Invalid ID"
-      });
-    }
-    
-    const lookedUpMeetup = meetupsDb.find(meet => meet.id
-       === parseInt(req.params.id, 10));
-    if (!lookedUpMeetup) {
-      return res.status(404).json({
-        status: 404,
-        error: 'The meetup with given ID was not found',
-      });
-    }
-    const { title: topic } = lookedUpMeetup;
-
     const { error } = helpers.validateRSVP(req.body);
     if (error) {
       return res.status(400).json({
         status: 400,
         error: error.details[0].message,
       });
-    }
-
-    const rsvp = {
-      id: parseInt(String(req.body.meetup) + String(req.body.user), 10),
-      meetup: req.body.meetup,
-      user: req.body.user,
-      response: req.body.response,
-    };
-    const { meetup, response: status } = rsvp;
-    rsvpsDb.push(rsvp);
-    return res.status(201).json({
-      status: 201,
-      data: [{
-        meetup,
-        topic,
-        status,
-      }],
+    } 
+    const {
+      meetupId, userId, response,
+    } = req.body;
+    const queryString = 'SELECT topic FROM meetups WHERE id = $1';
+    const values = [meetupId];
+    return db.query(queryString, values, (err, result) => {
+      if (err) {
+        return responses.errorProcessing(req, res);
+      }
+      if (result.rowCount <= 0) {
+        return responses.nonExistingMeetup(req, res);
+      }
+      if (result.rowCount > 0) {
+        const topic = result.rows;
+        const queryString2 = 'INSERT INTO rsvps (meetId, userId, response ) VALUES($1, $2) RETURNING *';
+        const params2 = [meetupId, userId, response];
+        return db.query(queryString2, params2, (err, result) => {
+          if (err) {
+            return responses.errorProcessing(req, res);
+          }
+          if (result.rowCount > 0) { 
+            const rsvp = result.rows;
+            const { meetupId : meetup, response : status } = rsvp;
+            return res.status(201).json({
+              status: 201,
+              data: [{
+                meetup,
+                topic,
+                status,
+              }],
+            });
+          }
+        })
+      }
     });
   }
 }

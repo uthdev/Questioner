@@ -14,8 +14,8 @@ helpers.validateMeetup = (meetup) => {
 
 helpers.validateRSVP = (rsvp) => {
   const schema = {
-    meetup: Joi.number().integer().positive().required(),
-    user: Joi.number().integer().positive().required(),
+    meetupId: Joi.number().integer().positive().required(),
+    userId: Joi.number().integer().positive().required(),
     response: Joi.any().valid(['yes', 'no', 'maybe']).required(),
   };
   return Joi.validate(rsvp, schema);
