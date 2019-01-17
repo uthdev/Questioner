@@ -18,13 +18,20 @@ responses.nonExistingAccount = (req, res) => {
   return res.status(404).json({
     status: 404,
     error: 'Could not find any user matching your request'
-  })
+  });
 }
 
 responses.incorrectPassword = (req, res) => {
   return res.status(400).json({
     status: 400,
     error: 'Incorrect Password'
-  })
+  });
+}
+
+responses.nonExistingMeetup = (req, res) => {
+  return res.status(404).json({
+    status: 404,
+    error: 'The meetup with given ID was not found',
+  });
 }
 export default responses;

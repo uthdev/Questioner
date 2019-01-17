@@ -15,3 +15,5 @@ coverage/
 server/build/
 
 .env
+
+toberesolved.js

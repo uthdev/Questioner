@@ -12,7 +12,8 @@ class UsersController {
       });
     }
     const hashedPassword = authHelpers.hashPassword(req.body.password);
-    return db.query(`SELECT email FROM users WHERE email = '${req.body.email}'`, (err, result) =>{
+    const queryString = `SELECT email FROM users WHERE email = '${req.body.email}'`
+    return db.query(queryString, (err, result) =>{
       if (err) {
         return responses.errorProcessing(req, res);
       }
