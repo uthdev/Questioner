@@ -10,7 +10,6 @@ class MeetupController {
     const queryString = 'SELECT * FROM meetups';
     return db.query(queryString, [], (err, result) => {
       if (err) {
-        console.log(err);
         return responses.errorProcessing(req, res);
       }
       console.log(result.rows[0]);
@@ -29,7 +28,6 @@ class MeetupController {
     const queryString = `SELECT * FROM meetups WHERE happeningOn < '${moment}'`;
     return db.query(queryString, [], (err, result) => {
       if (err) {
-        console.log(err);
         return responses.errorProcessing(req, res);
       }
       console.log(result.rows);
@@ -49,7 +47,6 @@ class MeetupController {
     const queryString = 'SELECT * FROM meetups WHERE id = $1';
     return db.query(queryString, [id], (err, result) => {
       if (err) {
-        console.log(err);
         return responses.errorProcessing(req, res);
       }
       if (result.rowCount <= 0) {
@@ -85,7 +82,6 @@ class MeetupController {
     const values = [title, location, happeningOn, tags, new Date()];
     return db.query(queryString, values, (err, result) =>{
       if (err) {
-        console.log(err)
         return responses.errorProcessing(req, res);
       }
       if(result.rowCount > 0) { 
@@ -121,7 +117,6 @@ class MeetupController {
     const values = [meetupId];
     return db.query(queryString, values, (err, result) => {
       if (err) {
-        console.log(err)
         return responses.errorProcessing(req, res);
       }
       if (result.rowCount <= 0) {
@@ -131,7 +126,6 @@ class MeetupController {
         const topic = result.rows;
         const queryString2 = 'INSERT INTO rsvps (meetId, userId, response ) VALUES($1, $2) RETURNING *';
         const params2 = [meetupId, userId, response];
-        console.log(err)
         return db.query(queryString2, params2, (err, result) => {
           if (err) {
             return responses.errorProcessing(req, res);
