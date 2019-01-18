@@ -15,8 +15,8 @@ const pool = (process.env.NODE_ENV === 'production') ? new Pool(dbConfig.test) :
 
 export default {
   query: (text, params, callback) => {
-    const start = Date.now();
+    const start = "Database queried"
     console.log(start)
     return pool.query(text, params, callback);
-    }
+  }
 }

@@ -19,6 +19,10 @@ app.use('/api/v1/questions', questionRoute);
 
 app.use('/api/v1/auth', usersRoutes);
 
+app.get('*', (req, res) => {
+  res.status(404).send({ message: 'Invalid route'});
+});
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, console.log(`Server running on port ${port}...`));
