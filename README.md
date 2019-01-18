@@ -9,6 +9,8 @@ Questioner helps the meetup organizer prioritize questions to be answered. Other
 [![Maintainability](https://api.codeclimate.com/v1/badges/4d3d3ddd0fb69506c98d/maintainability)](https://codeclimate.com/github/uthdev/andela_questioner_challenge/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/4d3d3ddd0fb69506c98d/test_coverage)](https://codeclimate.com/github/uthdev/andela_questioner_challenge/test_coverage)
 
+Preview UI template here[ UI Template](https://uthdev.github.io/andela_questioner_challenge/UI/index.html)
+
 
 ## Style guide
 
@@ -35,3 +37,117 @@ Questioner helps the meetup organizer prioritize questions to be answered. Other
 
 - Admin can add images to a meetup record.
 - Admin can add tags to a meetup record.
+
+## Installing
+
+#### Prerequisites
+
+Ensure you have **NodeJS** installed by entering `node -v` on your terminal
+If you don't have **NodeJS** installed go to the [NodeJS Website](http://nodejs.org), and follow the download instructions
+
+To install this app
+
+```
+git clone https://github.com/uthdev/andela_questioner_challenge.git
+```
+
+And install the required dependencies
+
+```
+npm install
+```
+
+Run server
+
+```
+npm run dev
+```
+
+Server listens on port `5000`
+
+## Running the tests
+
+To run test cases
+
+```
+npm test
+```
+
+### Working Routes
+
+<table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Functionality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET api/v1/meetups</td>
+<td>Fetch all meetups</td>
+</tr>
+<tr>
+<td>GET api/v1/meetups/upcoming</td>
+<td>Fetch all upcoming meetups</td>
+</tr>
+<tr>
+<td>GET api/v1/meetups/:meetupId</td>
+<td>Fetch the details of a specific meetup</td>
+</tr>
+<tr>
+<td>POST api/v1/questions</td>
+<td>Post a question</td>
+</tr>
+<tr>
+<td>POST api/v1/meetups</td>
+<td>Create a meetup</td>
+</tr>
+<tr>
+<td>PATCH api/v1/questions/:id/upvote</td>
+<td>Upvote a Question</td>
+</tr>
+<tr>
+<td>PATCH api/v1/questions/:id/downvote</td>
+<td>Downvote a Question</td>
+</tr>
+<tr>
+<td>DELETE api/v1/meetups/:id/</td>
+<td>Delete a Specific meetup</td>
+</tr>
+<tr>
+<td>POST api/v1/meetups/:id/rsvps</td>
+<td>RSVP to a meetup</td>
+</tr>
+<tr>
+<td>POST api/v1/auth/signup</td>
+<td>User can Sign Up</td>
+</tr>
+<tr>
+<td>POST api/v1/auth/login</td>
+<td>User can login</td>
+</tr>
+</tbody></table>
+
+## License
+
+This projects is under the MIT LICENSE
+
+## Author
+
+[Adeleke Gbolahan](http://github.com/uthdev)
+
+## Acknowledgments
+
+- [Andela](http://andela.com)
+- [Brad Traversy Media](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA)
+- [Google Search](https://google.com)
+- [Stackoverflow](stackoverflow.com)
+- [Mohammed MOsh]
+- Hat tip to everybody who supported
+
+### Live demo
+
+You can test the api endpoints
+
+- [Here ](https://caniask.herokuapp.com/api/v1)
