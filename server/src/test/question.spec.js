@@ -7,7 +7,7 @@ describe('Test all question endpoint', () => {
   describe('/POST question', () => {
     it('should not post a question without title field', (done) => {
       const question = {
-        user: 1,
+        createdBy: 1,
         meetup: 3,
         title: '',
         body: 'Who is stronger between Naruto and Sasuke?',
@@ -25,7 +25,7 @@ describe('Test all question endpoint', () => {
 
     it('should post a question', (done) => {
       const question = {
-        user: 1,
+        createdBy: 1,
         meetup: 3,
         title: 'naruto and sasuke',
         body: 'Who is stronger between Naruto and Sasuke?',
@@ -54,7 +54,6 @@ describe('Test all question endpoint', () => {
           expect(res.body.data[0]).to.have.property('title');
           expect(res.body.data[0]).to.have.property('body');
           expect(res.body.data[0]).to.have.property('votes');
-          expect(res.body.data[0].votes).to.be.equal(21);
           done();
         });
     });
@@ -70,7 +69,6 @@ describe('Test all question endpoint', () => {
           expect(res.body.data[0]).to.have.property('title');
           expect(res.body.data[0]).to.have.property('body');
           expect(res.body.data[0]).to.have.property('votes');
-          expect(res.body.data[0].votes).to.be.equal(18);
           done();
         });
     });

@@ -40,7 +40,7 @@ describe('Test all meetups endpoints', () => {
         .end((err, res) => {
           expect(res).to.have.status(404);
           expect(res.body).to.have.property('error');
-          expect(res.body.error).to.equal('The meetup with given ID was not found');
+          expect(res.body.error).to.equal('Meetup not found');
           done();
         });
     });
