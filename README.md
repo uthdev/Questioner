@@ -22,6 +22,7 @@ Preview UI template here[ UI Template](https://uthdev.github.io/andela_questione
 - [Expressjs](http://expressjs.com)
 - [Mocha](http://mocha.com)
 - [Chai](http://chai.com)
+- [moment](http://moment)
 
 ## Required Features
 
@@ -129,10 +130,6 @@ npm test
 </tr>
 </tbody></table>
 
-## License
-
-This projects is under the MIT LICENSE
-
 ## Author
 
 [Adeleke Gbolahan](http://github.com/uthdev)
@@ -143,7 +140,7 @@ This projects is under the MIT LICENSE
 - [Brad Traversy Media](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA)
 - [Google Search](https://google.com)
 - [Stackoverflow](stackoverflow.com)
-- [Mohammed MOsh]
+- [Mohammed Mosh]
 - Hat tip to everybody who supported
 
 ### Live demo
