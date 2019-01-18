@@ -146,6 +146,30 @@ class MeetupController {
       }
     });
   }
+  static deleteMeetup (req, res) {
+    const { id } = req.params;
+    const queryString = 'SELECT * FROM meetups WHERE id = $1';
+    return db.query(queryString, [id], (err, result) => {
+      if (err) {
+        console.log(err)
+        return responses.errorProcessing(req, res);
+      }
+      if (result.rowCount <= 0) {
+        return responses.nonExistingMeetup(req, res)
+      }
+      if(result.rowCount > 0) {
+        return db.query('DELETE FROM users WHERE id = $1', [id], (err, results) => {
+          if(err) {
+            return responses.errorProcessing(req, res);
+          }
+          return res.status(200).json({
+            status: 200, 
+            data: ["Successfully deleted the Meetup"]
+          })
+        })
+      }
+    })
+  }
 }
 
 export default MeetupController;

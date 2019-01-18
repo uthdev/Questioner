@@ -27,7 +27,8 @@ authHelpers.validateSignIn = (user) => {
 
 authHelpers.generateToken = (user) => {
   return jwt.sign({
-      id: user.id
+      id: user.id,
+      email: user.email
     },
     process.env.JWT_SECRET, 
     { 
