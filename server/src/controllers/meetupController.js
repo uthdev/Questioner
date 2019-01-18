@@ -151,7 +151,6 @@ class MeetupController {
     const queryString = 'SELECT * FROM meetups WHERE id = $1';
     return db.query(queryString, [id], (err, result) => {
       if (err) {
-        console.log(err)
         return responses.errorProcessing(req, res);
       }
       if (result.rowCount <= 0) {

@@ -40,7 +40,7 @@ describe('Test signin endpoints', () => {
       .send(data)
       .end((err, res) => {
         expect(res).to.have.status(400);
-        expect(res.body.error).to.be.equal('Incorrect Password');
+        expect(res.body.error).to.be.equal('Invalid Password');
         done();
       });
     })

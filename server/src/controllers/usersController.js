@@ -27,7 +27,7 @@ class UsersController {
         if(err) {
           return res.status(500).json({
             status: 500,
-            error: "Unauthorized access"
+            error: "Server error"
           }) 
         } else {
           const user = result.rows[0];

@@ -9,7 +9,7 @@ responses.errorProcessing = (req, res) => {
 
 responses.errorAccountExist = (req, res) => {
   return res.status(403).json({
-    status: 403,
+    status: 409,
     error: "Account already exist"
   })
 }
@@ -17,28 +17,28 @@ responses.errorAccountExist = (req, res) => {
 responses.nonExistingAccount = (req, res) => {
   return res.status(404).json({
     status: 404,
-    error: 'Could not find any user matching your request'
+    error: 'Account not found'
   });
 }
 
 responses.incorrectPassword = (req, res) => {
   return res.status(400).json({
     status: 400,
-    error: 'Incorrect Password'
+    error: 'Invalid Password'
   });
 }
 
 responses.nonExistingMeetup = (req, res) => {
   return res.status(404).json({
     status: 404,
-    error: 'The meetup with given ID was not found',
+    error: 'Meetup not found',
   });
 }
 
 responses.nonExistingQuestion = (req, res) => {
   return res.status(404).json({
     status: 404,
-    error: 'Invalid ID',
+    error: 'Question not found',
   });
 }
 export default responses;
