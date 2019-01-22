@@ -25,7 +25,7 @@ class MeetupController {
   }
 
   static upcomingMeetups(req, res) {
-    const queryString = `SELECT * FROM meetups WHERE happeningOn < '${moment}'`;
+    const queryString = `SELECT * FROM meetups WHERE happeningOn > '${moment()}'`;
     return db.query(queryString, [], (err, result) => {
       if (err) {
         return responses.errorProcessing(req, res);
@@ -79,7 +79,7 @@ class MeetupController {
     }
     const { title, location, happeningOn, tags } = req.body; 
     const queryString = 'INSERT INTO meetups (topic, location, happeningOn, tags, createdOn ) VALUES($1, $2, $3, $4, $5) RETURNING *';
-    const values = [title, location, happeningOn, tags, new Date()];
+    const values = [title, location, happeningOn, tags, moment()];
     return db.query(queryString, values, (err, result) =>{
       if (err) {
         return responses.errorProcessing(req, res);
@@ -123,16 +123,17 @@ class MeetupController {
         return responses.nonExistingMeetup(req, res);
       }
       if (result.rowCount > 0) {
-        const topic = result.rows;
-        const queryString2 = 'INSERT INTO rsvps (meetId, userId, response ) VALUES($1, $2) RETURNING *';
-        const params2 = [meetupId, userId, response];
-        return db.query(queryString2, params2, (err, result) => {
+        console.log(result.rows[0]);
+        const { topic } = result.rows[0] ;
+        const queryString2 = 'INSERT INTO rsvps (meetupId, userId, response ) VALUES($1, $2, $3) RETURNING *';
+        const params = [meetupId, userId, response];
+        return db.query(queryString2, params, (err, result) => {
           if (err) {
             return responses.errorProcessing(req, res);
           }
           if (result.rowCount > 0) { 
-            const rsvp = result.rows;
-            const { meetupId : meetup, response : status } = rsvp;
+            const rsvp = result.rows[0];
+            const { meetupid : meetup, response : status } = rsvp;
             return res.status(201).json({
               status: 201,
               data: [{
@@ -157,7 +158,7 @@ class MeetupController {
         return responses.nonExistingMeetup(req, res)
       }
       if(result.rowCount > 0) {
-        return db.query('DELETE FROM users WHERE id = $1', [id], (err, results) => {
+        return db.query('DELETE FROM meetups WHERE id = $1', [id], (err, results) => {
           if(err) {
             return responses.errorProcessing(req, res);
           }

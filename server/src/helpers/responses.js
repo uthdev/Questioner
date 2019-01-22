@@ -41,4 +41,11 @@ responses.nonExistingQuestion = (req, res) => {
     error: 'Question not found',
   });
 }
+
+responses.usernameExist = (req, res) => {
+  return res.status(409).json({
+    status: 409, 
+    error: 'Username already exist'
+  })
+}
 export default responses;

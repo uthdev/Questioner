@@ -1,6 +1,7 @@
 import db from '../config/index';
 import authHelpers from '../helpers/authHelpers';
 import responses from '../helpers/responses'
+import moment from 'moment';
 
 class UsersController {
   static signUp(req, res) {
@@ -15,31 +16,44 @@ class UsersController {
     const queryString = `SELECT email FROM users WHERE email = '${req.body.email}'`
     return db.query(queryString, (err, result) =>{
       if (err) {
+        console.log(err)
         return responses.errorProcessing(req, res);
       }
       if(result.rowCount > 0) {
         return responses.errorAccountExist(req, res);
       }
-      const { firstname, lastname, email, phonenumber, username } = req.body;
-      const text = 'INSERT INTO users (firstname, lastname, email, phonenumber, password, username ) VALUES($1, $2, $3, $4, $5, $6) RETURNING *';
-      const values = [firstname, lastname, email, phonenumber, hashedPassword, username];
-      return db.query(text, values, (err, result) => {
+      return db.query(`SELECT username FROM users WHERE username = '${req.body.username}'`, (err, result) => {
         if(err) {
-          return res.status(500).json({
-            status: 500,
-            error: "Server error"
-          }) 
-        } else {
-          const user = result.rows[0];
-          return res.status(201).json({
-            status: 201, 
-            data: [{
-              token,
-              user,
-            }]
-          });
-        }  
+          return responses.errorProcessing(req, res);
+         }
+        if(result.rowCount > 0){
+          return responses.usernameExist(req, res);
+        }
+        const { firstname, lastname, othername, email, phonenumber, username } = req.body;
+        const text = 'INSERT INTO users (firstname, lastname, othername, email, phonenumber, password, username, registered ) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *';
+        const values = [firstname, lastname,othername, email, phonenumber, hashedPassword, username, moment()];
+        return db.query(text, values, (err, result) => {
+          if(err) {
+            console.log(err);
+            return res.status(500).json({
+              status: 500,
+              error: "Server error"
+            }) 
+          } else {
+            const user = result.rows[0];
+            const { id, firstname, lastname, othername, email, phonenumber, username, registered, isAdmin} = user;
+            const token = authHelpers.generateToken(user);
+            return res.status(201).json({
+              status: 201, 
+              data: [{
+                token,
+                user,
+              }]
+            });
+          }  
+        });
       })
+    
     })
   }
 

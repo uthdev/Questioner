@@ -19,8 +19,8 @@ app.use('/api/v1/questions', questionRoute);
 
 app.use('/api/v1/auth', usersRoutes);
 
-app.get('*', (req, res) => {
-  res.status(404).send({ message: 'Invalid route'});
+app.all('*', (req, res) => {
+  res.status(404).send({ message: 'Please use "/api/v1/<valid routes>" and ensure to read our API documentation to know all available routes'});
 });
 
 const port = process.env.PORT || 5000;
