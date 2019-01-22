@@ -19,24 +19,9 @@ app.use('/api/v1/questions', questionRoute);
 
 app.use('/api/v1/auth', usersRoutes);
 
-app.get('*', (req, res) => {
+app.all('*', (req, res) => {
   res.status(404).send({ message: 'Please use "/api/v1/<valid routes>" and ensure to read our API documentation to know all available routes'});
 });
-
-app.post('*', (req, res) => {
-  res.status(404).send({ message: 'Invalid route'});
-});
-app.delete('*', (req, res) => {
-  res.status(404).send({ message: 'Invalid route'});
-});
-
-app.patch('*', (req, res) => {
-  res.status(404).send({ message: 'Invalid route'});
-});
-app.put('*', (req, res) => {
-  res.status(404).send({ message: 'Invalid route'});
-});
-
 
 const port = process.env.PORT || 5000;
 
