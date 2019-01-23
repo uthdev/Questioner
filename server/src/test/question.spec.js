@@ -45,6 +45,28 @@ describe('Test all question endpoint', () => {
   });
 
   describe('Upvote a question', () => {
+    it('should return an error if an Invalid question Id is requested', (done) => {
+      chai.request(app)
+        .patch('/api/v1/questions/-2/upvote')
+        .end((err, res) => {
+          expect(res).to.have.status(400);
+          expect(res.body).to.have.property('error');
+          expect(res.body.error).to.be.equal('"id" must be a positive number');
+          done();
+        });
+    });
+
+    it('should return an error if the requested question does not exist', (done) => {
+      chai.request(app)
+        .patch('/api/v1/questions/1000/upvote')
+        .end((err, res) => {
+          expect(res).to.have.status(404);
+          expect(res.body).to.have.property('error');
+          expect(res.body.error).to.be.equal('Question not found');
+          done();
+        });
+    });
+
     it('should increase the vote property of a question by one', (done) => {
       chai.request(app)
         .patch('/api/v1/questions/3/upvote')
@@ -60,6 +82,28 @@ describe('Test all question endpoint', () => {
   });
 
   describe('Downvote a question', () => {
+    it('should return an error if an Invalid question Id is requested', (done) => {
+      chai.request(app)
+        .patch('/api/v1/questions/-2/downvote')
+        .end((err, res) => {
+          expect(res).to.have.status(400);
+          expect(res.body).to.have.property('error');
+          expect(res.body.error).to.be.equal('"id" must be a positive number');
+          done();
+        });
+    });
+
+    it('should return an error if the requested question does not exist', (done) => {
+      chai.request(app)
+        .patch('/api/v1/questions/1000/downvote')
+        .end((err, res) => {
+          expect(res).to.have.status(404);
+          expect(res.body).to.have.property('error');
+          expect(res.body.error).to.be.equal('Question not found');
+          done();
+        });
+    });
+
     it('should decrease the vote property of a question by one', (done) => {
       chai.request(app)
         .patch('/api/v1/questions/2/downvote')
